@@ -1,0 +1,14 @@
+{
+    "ops": {
+        "awscloudformation": {
+            "AuthRoleName": "personal-website-ops-20190927101503-authRole",
+            "UnauthRoleArn": "arn:aws:iam::216564622275:role/personal-website-ops-20190927101503-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::216564622275:role/personal-website-ops-20190927101503-authRole",
+            "Region": "eu-west-2",
+            "DeploymentBucketName": "personal-website-ops-20190927101503-deployment",
+            "UnauthRoleName": "personal-website-ops-20190927101503-unauthRole",
+            "StackName": "personal-website-ops-20190927101503",
+            "StackId": "arn:aws:cloudformation:eu-west-2:216564622275:stack/personal-website-ops-20190927101503/4a7a71f0-e107-11e9-b222-064d74357b0e"
+        }
+    }
+}

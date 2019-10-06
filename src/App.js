@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter} from "react-router-dom";
+import Header from "./header";
+import Routes from "./router";
+import Banner from "./jumbotron/Banner";
+import {applyMiddleware, createStore} from "redux";
+import rootReducer from "./RootReducer";
+import createSagaMiddleware from 'redux-saga'
+import {authWatcher} from "./authentication/AuthSaga";
+import {Provider} from "react-redux";
+import './App.scss'
+import Footer from "./Footer";
+import Container from "react-bootstrap/Container";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const saga = createSagaMiddleware()
+
+const store = createStore(rootReducer, applyMiddleware(saga))
+
+saga.run(authWatcher)
+
+const App = (props) => {
+    return (
+        <BrowserRouter>
+            <Provider store={store}>
+                <div className="App">
+                    <Header/>
+                    <Banner/>
+                    <Container id="main-content">
+                        <Routes/>
+                    </Container>
+                    <Footer/>
+                </div>
+            </Provider>
+        </BrowserRouter>
+    );
+};
 
 export default App;
