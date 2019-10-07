@@ -22,7 +22,7 @@ const Header = (props) => {
             <Navbar.Brand as={Link} to="/"><img src={LogoImage} className="title-logo"
                                         alt="Shane Preater - Software consultant and DevOps Professional"/></Navbar.Brand>
 
-            <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" className="navbar-toggle"/>
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                 <Nav className="mr-auto">
                     <NavDropdown.Item as={Link} to="/">About Me</NavDropdown.Item>
