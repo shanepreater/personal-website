@@ -1,0 +1,12 @@
+@import "style/variables";
+
+footer {
+  font-size: small;
+  h1,h2,h3,h4,h5 {
+    font-size: small;
+    color: $gray-300;
+  }
+  span {
+    color: $gray-500;
+  }
+}

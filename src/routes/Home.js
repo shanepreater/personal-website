@@ -1,10 +1,11 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import raytheonLogo from "../static/companies/raytheon.png"
+import futureLogo from "../static/companies/future.png"
+import thalesLogo from "../static/companies/thales.jpg"
+import lockheedLogo from "../static/companies/LM_logo_grey.svg"
 import BAESystemsLogo from "../static/companies/baesystems.svg"
-import RaytheonLogo from "../static/companies/raytheon.png"
-import LockheedLogo from "../static/companies/LM_logo_grey.svg"
-import FutureLogo from "../static/companies/future.png"
-import ThalesLogo from "../static/companies/thales.svg"
+import blueFingerLogo from "../static/companies/cylex.png"
 
 const Home = (props) => (
     <div id="home">
@@ -17,11 +18,12 @@ const Home = (props) => (
             complete development teams.</p>
         <p>I have provided consultancy services in various capacities to many companies, including:</p>
         <ul>
-            <li><BAESystemsLogo/></li>
-            <li><RaytheonLogo/></li>
-            <li><LockheedLogo/></li>
-            <li><FutureLogo/></li>
-            <li><ThalesLogo/></li>
+            <li><img src={BAESystemsLogo}/></li>
+            <li><img src={raytheonLogo}/></li>
+            <li><img src={lockheedLogo}/></li>
+            <li><img src={futureLogo}/></li>
+            <li><img src={thalesLogo}/></li>
+            <li><img src={blueFingerLogo}/></li>
         </ul>
     </div>
 );
