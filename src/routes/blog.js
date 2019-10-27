@@ -1,7 +1,15 @@
 import React from "react"
+import DynamicParallax from "../sections/DynamicParallax";
+import CodeAndTingImage from "../static/slider/montage.jpg"
 
 const Blog = (props) => (
     <div id="blog">
+        <DynamicParallax image={CodeAndTingImage} alt="Montage of all the things I do" content={(
+            <div>
+                <h3>Welcome to my blog</h3>
+                <p>I have put together blogs on various aspects of software development, design and training</p>
+            </div>
+        )}/>
         <h4>Latest blogs</h4>
         <p>Coming soon ....</p>
         <p>

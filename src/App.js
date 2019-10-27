@@ -15,7 +15,6 @@ import Blog from "./routes/blog";
 import Mentor from "./sections/Mentoring";
 import Developer from "./sections/Developer";
 import Designer from "./sections/Designer";
-import Languages from "./routes/languages";
 import './App.scss'
 
 library.add(fab, faCheckSquare, faCoffee, faBars, faAt, faTerminal)
@@ -23,7 +22,7 @@ const saga = createSagaMiddleware()
 
 const store = createStore(rootReducer, applyMiddleware(saga))
 
-saga.run(authWatcher)
+saga.run(authWatcher);
 
 const App = (props) => {
     return (
@@ -36,7 +35,6 @@ const App = (props) => {
                         <Route path="/mentor" component={Mentor}/>
                         <Route path="/dev" component={Developer}/>
                         <Route path="/design" component={Designer}/>
-                        <Route path="/languages" component={Languages}/>
                         <Route path="/" exact component={AboutMe}/>
                     </div>
                     <Footer/>
