@@ -33,7 +33,7 @@ const Header = (props) => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <ul className="navbar-nav pl-md-5 ml-auto">
                         <li className="nav-item">
-                            <Link className="nav-link active" to="/">About me</Link>
+                            <Link className="nav-link" to="/">About me</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/mentor">Mentoring and Training</Link>
