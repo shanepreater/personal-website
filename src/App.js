@@ -16,6 +16,9 @@ import Mentor from "./sections/Mentoring";
 import Developer from "./sections/Developer";
 import Designer from "./sections/Designer";
 import './App.scss'
+import awsconfig from './aws-exports';
+import Amplify from 'aws-amplify';
+Amplify.configure(awsconfig)
 
 library.add(fab, faCheckSquare, faCoffee, faBars, faAt, faTerminal)
 const saga = createSagaMiddleware()

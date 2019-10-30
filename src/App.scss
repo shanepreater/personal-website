@@ -34,10 +34,20 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Montserrat:400,700|Oxyg
     z-index: 10;
   }
 
-    .media-icon {
-        font-size: 3em;
-        color: $primary;
+  .media-icon {
+    font-size: 3em;
+    color: $primary;
+  }
+
+  .error {
+    .toast-header {
+      background-color: $danger;
+      color: $white;
     }
+  }
+  .toast-header button.close {
+    color: inherit;
+  }
 }
 
 .icon {
