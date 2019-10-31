@@ -11,6 +11,13 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Montserrat:400,700|Oxyg
 .shane-preater {
   background-color: $black;
 
+  nav.navbar {
+    z-index: 2;
+    .dropdown-menu {
+      background-color: $black;
+    }
+  }
+
   .content {
     padding-left: 0.5em;
     padding-right: 0.5em;

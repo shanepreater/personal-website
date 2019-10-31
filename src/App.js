@@ -47,6 +47,7 @@ const store = createStore(rootReducer, applyMiddleware(saga))
 saga.run(authWatcher);
 
 const App = (props) => {
+    console.log(props)
     return (
         <BrowserRouter>
             <Provider store={store}>
