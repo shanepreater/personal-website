@@ -1,24 +1,40 @@
 {
-    "ops": {
-        "awscloudformation": {
-            "AuthRoleName": "personal-website-ops-20191030181551-authRole",
-            "UnauthRoleArn": "arn:aws:iam::216564622275:role/personal-website-ops-20191030181551-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::216564622275:role/personal-website-ops-20191030181551-authRole",
-            "Region": "eu-west-2",
-            "DeploymentBucketName": "personal-website-ops-20191030181551-deployment",
-            "UnauthRoleName": "personal-website-ops-20191030181551-unauthRole",
-            "StackName": "personal-website-ops-20191030181551",
-            "StackId": "arn:aws:cloudformation:eu-west-2:216564622275:stack/personal-website-ops-20191030181551/4fe933c0-fb41-11e9-a435-021679f87d94"
-        },
-        "categories": {
-            "auth": {
-                "personalwebsite4aaf66d9": {
-                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\"}]"
-                },
-                "Cognito": {
-                    "facebookAppId": "503514473773927"
-                }
-            }
+  "ops": {
+    "awscloudformation": {
+      "AuthRoleName": "personal-website-ops-20191030181551-authRole",
+      "UnauthRoleArn": "arn:aws:iam::216564622275:role/personal-website-ops-20191030181551-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::216564622275:role/personal-website-ops-20191030181551-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "personal-website-ops-20191030181551-deployment",
+      "UnauthRoleName": "personal-website-ops-20191030181551-unauthRole",
+      "StackName": "personal-website-ops-20191030181551",
+      "StackId": "arn:aws:cloudformation:eu-west-2:216564622275:stack/personal-website-ops-20191030181551/4fe933c0-fb41-11e9-a435-021679f87d94"
+    },
+    "categories": {
+      "auth": {
+        "personalwebsite4aaf66d9": {
+          "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\"}]"
         }
+      }
     }
+  },
+  "master": {
+    "awscloudformation": {
+      "AuthRoleName": "personal-website-ops-20191030181551-authRole",
+      "UnauthRoleArn": "arn:aws:iam::216564622275:role/personal-website-ops-20191030181551-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::216564622275:role/personal-website-ops-20191030181551-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "personal-website-ops-20191030181551-deployment",
+      "UnauthRoleName": "personal-website-ops-20191030181551-unauthRole",
+      "StackName": "personal-website-ops-20191030181551",
+      "StackId": "arn:aws:cloudformation:eu-west-2:216564622275:stack/personal-website-ops-20191030181551/4fe933c0-fb41-11e9-a435-021679f87d94"
+    },
+    "categories": {
+      "auth": {
+        "personalwebsite4aaf66d9": {
+          "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\"}]"
+        }
+      }
+    }
+  }
 }
