@@ -20,6 +20,7 @@ import Developer from "./sections/Developer";
 import Designer from "./sections/Designer";
 import AboutMe from "./sections/AboutMe";
 import Footer from "./Footer";
+import Admin from "./routes/Admin";
 
 const correctConfig = original => {
     const isLocalhost = Boolean(
@@ -46,8 +47,7 @@ const store = createStore(rootReducer, applyMiddleware(saga))
 
 saga.run(authWatcher);
 
-const App = (props) => {
-    console.log(props)
+const App = () => {
     return (
         <BrowserRouter>
             <Provider store={store}>
@@ -59,6 +59,7 @@ const App = (props) => {
                         <Route path="/mentor" component={Mentor}/>
                         <Route path="/dev" component={Developer}/>
                         <Route path="/design" component={Designer}/>
+                        <Route path="/admin" component={Admin} />
                         <Route path="/" exact component={AboutMe}/>
                     </div>
                     <Footer/>
