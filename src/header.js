@@ -1,30 +1,20 @@
 import React from "react"
-import {connect} from "react-redux"
 import LogoImage from "./static/mainLogo.png"
 import SmallLogoImage from "./static/logo.png"
-import {loggedInSelector, userAvatarSelector, userNameSelector} from "./authentication/AuthReducer";
 import {Link} from "react-router-dom";
 import "./header.scss"
 import {Container, Navbar} from "react-bootstrap";
+import AuthenticationControl from "./components/AuthenticationControl";
 
-const mapStateToProps = (state, props) => ({
-    loggedIn: loggedInSelector(state),
-    userName: userNameSelector(state),
-    userAvatar: userAvatarSelector(state),
-
-});
-
-const mapDispatchToProps = (dispatch, props) => ({});
-
-const Header = (props) => {
+const Header = () => {
     return (
         <Navbar bg="dark" expand="lg" className="navbar-dark">
             <Container fluid className="navbar-container">
                 <Navbar.Brand as={Link} to="/" className="d-none d-md-block">
-                    <img src={LogoImage} alt="banner image"/>
+                    <img src={LogoImage} alt="banner"/>
                 </Navbar.Brand>
                 <Navbar.Brand as={Link} to="/" className="navbar-brand-small d-block d-md-none">
-                    <img src={SmallLogoImage} alt="banner image"/>
+                    <img src={SmallLogoImage} alt="banner"/>
                 </Navbar.Brand>
                 <div className="horizontal-spacer"/>
 
@@ -50,9 +40,7 @@ const Header = (props) => {
                         <li className="nav-item">
                             <Link className="nav-link" to="/contact">Contact</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/login">Login</Link>
-                        </li>
+                        <AuthenticationControl listClass="nav-item"/>
                     </ul>
                 </Navbar.Collapse>
             </Container>
@@ -60,4 +48,4 @@ const Header = (props) => {
     )
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header)
+export default Header;
