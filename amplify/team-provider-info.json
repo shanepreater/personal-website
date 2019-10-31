@@ -13,7 +13,7 @@
         "categories": {
             "auth": {
                 "personalwebsite4aaf66d9": {
-                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\",\"client_id\":\"503514473773927\",\"client_secret\":\"ad7cb9391c21a7cbf4cc7e9eeb7aefa3\"}]"
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\"}]"
                 }
             }
         }
