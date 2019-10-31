@@ -1,0 +1,9 @@
+type Post @model {
+  id: ID!
+  author: String!
+  title: String!
+  publishDate: AWSDate!
+  tldr: String!
+  content: String!
+  label: [String]!
+}
