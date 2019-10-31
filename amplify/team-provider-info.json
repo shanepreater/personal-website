@@ -14,6 +14,9 @@
             "auth": {
                 "personalwebsite4aaf66d9": {
                     "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\"}]"
+                },
+                "Cognito": {
+                    "facebookAppId": "503514473773927"
                 }
             }
         }
