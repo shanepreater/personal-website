@@ -33,6 +33,7 @@ const correctConfig = original => {
         )
     );
     const url = isLocalhost ? "http://localhost:3000/" : "https://www.shanepreater.dev/";
+    console.log(`Setting redirect url to ${url}`)
     original.oauth.redirectSignIn = url;
     original.oauth.redirectSignOut = url;
     return original;
