@@ -6,16 +6,16 @@ const DynamicParallax = ({image, alt, content}) => {
     const [height, setHeight] = useState(window.innerWidth * modifier);
     useEffect(() => {
         const resizeListener = ev => {
-            console.log(ev)
+            console.log(ev);
             const newHeight = ev.currentTarget.innerWidth * modifier;
-            ;
+
             console.log(`Resetting height to ${newHeight}`);
             setHeight(newHeight);
         };
 
         window.addEventListener("resize", resizeListener);
         return () => window.removeEventListener("resize", resizeListener);
-    }, []);
+    }, [modifier]);
 
     console.log(`Height is ${height}`)
     return (

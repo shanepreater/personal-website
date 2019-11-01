@@ -1,4 +1,4 @@
-import {adaptUserResponse} from "./awsAuth";
+import {adaptUserResponse} from "../aws/awsAuth";
 
 const InitialState = {
     awsAuth: null,

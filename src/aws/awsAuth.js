@@ -22,23 +22,23 @@ export const signinListener = dispatch => {
 
 export const obtainCurrentUserDetails = async dispatch => {
     const userDetails = await Auth.currentUserInfo();
-    dispatch({type:"userDetails/received", userDetails});
+    dispatch({type: "userDetails/received", userDetails});
 };
 
 export const obtainUserCredentials = async dispatch => {
-    const cognitoUser = await Auth.currentAuthenticatedUser();
-    console.log(cognitoUser);
-    const {accessToken} = cognitoUser.getSignInUserSession();
-    console.log("Credentials:")
-    console.log(accessToken.payload)
-    dispatch({type: "credentials/received", groups: accessToken.payload['cognito:groups']});
-}
+    try {
+        const cognitoUser = await Auth.currentAuthenticatedUser();
+        const {accessToken} = cognitoUser.getSignInUserSession();
+        dispatch({type: "credentials/received", groups: accessToken.payload['cognito:groups']});
+    } catch (e) {
+        dispatch({type: "error", title: "Error getting user details", errors: e.errors})
+    }
+};
 
 export const adaptUserResponse = response => {
-    const {id, username, attributes: {name, email, picture,  identities}} = response;
+    const {id, username, attributes: {name, email, picture, identities}} = response;
     const avatar = JSON.parse(picture).data;
     let userDetails = {id, username, name, email, picture, avatar, identities: JSON.parse(identities)};
-    console.log(userDetails)
     return userDetails;
 };
 
