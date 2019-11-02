@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {BrowserRouter, Route} from "react-router-dom";
 import {applyMiddleware, createStore} from "redux";
 import rootReducer from "./RootReducer";
@@ -21,6 +21,7 @@ import AboutMe from "./sections/AboutMe";
 import Footer from "./Footer";
 import Admin from "./routes/Admin";
 import {loadConfig} from "./aws/awsConfig";
+import ContactUs from "./components/ContactUs";
 
 Amplify.configure(loadConfig());
 
@@ -32,12 +33,15 @@ const store = createStore(rootReducer, applyMiddleware(saga));
 saga.run(authWatcher);
 
 const App = () => {
+    const [showContact, setShowContact] = useState(false);
+
     return (
         <BrowserRouter>
             <Provider store={store}>
                 <AuthWatcher/>
                 <div className="shane-preater">
-                    <Header/>
+                    <Header showContact={() => setShowContact(true)}/>
+                    <ContactUs show={showContact} setShow={setShowContact} />
                     <div className="content">
                         <Route path="/blog" component={Blog}/>
                         <Route path="/mentor" component={Mentor}/>
@@ -46,7 +50,7 @@ const App = () => {
                         <Route path="/admin" component={Admin}/>
                         <Route path="/" exact component={AboutMe}/>
                     </div>
-                    <Footer/>
+                    <Footer showContact={() => setShowContact(true)}/>
                 </div>
             </Provider>
         </BrowserRouter>

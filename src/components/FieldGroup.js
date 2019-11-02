@@ -20,6 +20,23 @@ export const TextField = ({name, label, value, error, valid, handleChange, handl
     )
 };
 
+export const EmailField = ({name, label, value, error, valid, handleChange, handleBlur, controlId,}) => {
+    return (
+        <Form.Group controlId={controlId}>
+            <Form.Label>{label}</Form.Label>
+            <Form.Control type="email"
+                          name={name}
+                          defaultValue={value}
+                          onChange={handleChange}
+                          isInvalid={!valid}
+                          onBlur={handleBlur}/>
+            <Form.Control.Feedback type="invalid">
+                {error}
+            </Form.Control.Feedback>
+        </Form.Group>
+    )
+};
+
 export const TextAreaField = ({name, label, value, error, valid, handleChange, handleBlur, controlId,}) => {
     return (
         <Form.Group controlId={controlId}>

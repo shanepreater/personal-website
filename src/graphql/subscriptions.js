@@ -40,3 +40,30 @@ export const onDeletePost = `subscription OnDeletePost {
   }
 }
 `;
+export const onCreateContactRequest = `subscription OnCreateContactRequest {
+  onCreateContactRequest {
+    id
+    email
+    subject
+    content
+  }
+}
+`;
+export const onUpdateContactRequest = `subscription OnUpdateContactRequest {
+  onUpdateContactRequest {
+    id
+    email
+    subject
+    content
+  }
+}
+`;
+export const onDeleteContactRequest = `subscription OnDeleteContactRequest {
+  onDeleteContactRequest {
+    id
+    email
+    subject
+    content
+  }
+}
+`;

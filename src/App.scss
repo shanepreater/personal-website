@@ -13,6 +13,7 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Montserrat:400,700|Oxyg
 
   nav.navbar {
     z-index: 2;
+
     .dropdown-menu {
       background-color: $black;
     }
@@ -52,18 +53,33 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Montserrat:400,700|Oxyg
       color: $white;
     }
   }
+
   .toast-header button.close {
     color: inherit;
   }
 
   .markdown-container {
-    h1,h2,h3,h4,h5 {
+    h1, h2, h3, h4, h5 {
       color: $white;
     }
 
-    p,li {
+    p, li {
       color: $gray-300;
     }
+  }
+}
+
+.model-body {
+  color: $white;
+
+  p, span, li {
+    color: $white;
+  }
+}
+
+.disclaimer {
+  p, li, span {
+    color: $gray-300;
   }
 }
 
@@ -365,4 +381,8 @@ legend {
   &-title {
     border-bottom: none;
   }
+}
+
+form, label, p, span, li {
+  color: $gray-300;
 }

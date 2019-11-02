@@ -34,3 +34,28 @@ export const listPosts = `query ListPosts(
   }
 }
 `;
+export const getContactRequest = `query GetContactRequest($id: ID!) {
+  getContactRequest(id: $id) {
+    id
+    email
+    subject
+    content
+  }
+}
+`;
+export const listContactRequests = `query ListContactRequests(
+  $filter: ModelContactRequestFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listContactRequests(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      email
+      subject
+      content
+    }
+    nextToken
+  }
+}
+`;

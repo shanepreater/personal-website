@@ -40,3 +40,30 @@ export const deletePost = `mutation DeletePost($input: DeletePostInput!) {
   }
 }
 `;
+export const createContactRequest = `mutation CreateContactRequest($input: CreateContactRequestInput!) {
+  createContactRequest(input: $input) {
+    id
+    email
+    subject
+    content
+  }
+}
+`;
+export const updateContactRequest = `mutation UpdateContactRequest($input: UpdateContactRequestInput!) {
+  updateContactRequest(input: $input) {
+    id
+    email
+    subject
+    content
+  }
+}
+`;
+export const deleteContactRequest = `mutation DeleteContactRequest($input: DeleteContactRequestInput!) {
+  deleteContactRequest(input: $input) {
+    id
+    email
+    subject
+    content
+  }
+}
+`;

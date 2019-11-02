@@ -8,3 +8,10 @@ type Post @model {
     labels: [String]!
     archive: Boolean!
 }
+
+type ContactRequest @model {
+    id: ID!
+    email: String!
+    subject: String!
+    content: String!
+}

@@ -8,3 +8,11 @@ type Post @model {
     labels: [String]!
     archive: Boolean!
 }
+
+type ContactRequest @model {
+    id: ID!
+    submitted: AWSTimestamp!
+    email: String!
+    subject: String!
+    content: String!
+}

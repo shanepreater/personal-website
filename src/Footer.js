@@ -1,13 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import "./Footer.scss"
-import {Container} from "react-bootstrap";
+import {Button, Container} from "react-bootstrap";
+import Disclaimers from "./components/Disclaimers";
+import ContactUs from "./components/ContactUs";
 
 const Footer = (props) => {
+    const [showDisclaimer, setShowDisclaimer] = useState(false);
+
     return (
         <footer className="site-footer" role="contentinfo">
+            <Disclaimers setShow={setShowDisclaimer} show={showDisclaimer}/>
             <Container fluid>
                 <Row>
                     <Col sm={6} md={7}>
@@ -32,10 +37,9 @@ const Footer = (props) => {
                     <Col sm={6} md={4} lg={2}>
                         <h3>Quick Links</h3>
                         <ul className="list-unstyled footer-link">
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Terms of Use</a></li>
-                            <li><a href="#">Disclaimers</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><li><Button variant="link" className="nav-link" onClick={() => setShowDisclaimer(true)}>Terms of use</Button></li></li>
+                            <li><Button variant="link" className="nav-link" onClick={() => setShowDisclaimer(true)}>Disclaimers</Button></li>
+                            <li><Button variant="link" className="nav-link" onClick={props.showContact}>Contact</Button></li>
                         </ul>
                     </Col>
                     <div className="col-md-3">

@@ -3,10 +3,10 @@ import LogoImage from "./static/mainLogo.png"
 import SmallLogoImage from "./static/logo.png"
 import {Link} from "react-router-dom";
 import "./header.scss"
-import {Container, Navbar} from "react-bootstrap";
+import {Button, Container, Navbar} from "react-bootstrap";
 import AuthenticationControl from "./components/AuthenticationControl";
 
-const Header = () => {
+const Header = ({showContact}) => {
     return (
         <Navbar bg="dark" expand="lg" className="navbar-dark">
             <Container fluid className="navbar-container">
@@ -38,7 +38,7 @@ const Header = () => {
                             <Link className="nav-link" to="/blog">Blog</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/contact">Contact</Link>
+                            <Button variant="link" className="nav-link" onClick={showContact}>Contact</Button>
                         </li>
                         <AuthenticationControl listClass="nav-item"/>
                     </ul>
