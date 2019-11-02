@@ -38,8 +38,11 @@ export const getContactRequest = `query GetContactRequest($id: ID!) {
   getContactRequest(id: $id) {
     id
     email
+    submitted
+    owner
     subject
     content
+    actioned
   }
 }
 `;
@@ -52,8 +55,11 @@ export const listContactRequests = `query ListContactRequests(
     items {
       id
       email
+      submitted
+      owner
       subject
       content
+      actioned
     }
     nextToken
   }

@@ -44,8 +44,11 @@ export const createContactRequest = `mutation CreateContactRequest($input: Creat
   createContactRequest(input: $input) {
     id
     email
+    submitted
+    owner
     subject
     content
+    actioned
   }
 }
 `;
@@ -53,8 +56,11 @@ export const updateContactRequest = `mutation UpdateContactRequest($input: Updat
   updateContactRequest(input: $input) {
     id
     email
+    submitted
+    owner
     subject
     content
+    actioned
   }
 }
 `;
@@ -62,8 +68,11 @@ export const deleteContactRequest = `mutation DeleteContactRequest($input: Delet
   deleteContactRequest(input: $input) {
     id
     email
+    submitted
+    owner
     subject
     content
+    actioned
   }
 }
 `;

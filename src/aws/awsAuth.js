@@ -38,8 +38,7 @@ export const obtainUserCredentials = async dispatch => {
 export const adaptUserResponse = response => {
     const {id, username, attributes: {name, email, picture, identities}} = response;
     const avatar = JSON.parse(picture).data;
-    let userDetails = {id, username, name, email, picture, avatar, identities: JSON.parse(identities)};
-    return userDetails;
+    return {id, username, name, email, picture, avatar, identities: JSON.parse(identities)};
 };
 
 export const requireSignIn = async (dispatch, userSelector, setErrorMessages) => {

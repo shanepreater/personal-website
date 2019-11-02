@@ -22,6 +22,7 @@ import Footer from "./Footer";
 import Admin from "./routes/Admin";
 import {loadConfig} from "./aws/awsConfig";
 import ContactUs from "./components/ContactUs";
+import Feedback from "./feedback/Feedback";
 
 Amplify.configure(loadConfig());
 
@@ -38,10 +39,11 @@ const App = () => {
     return (
         <BrowserRouter>
             <Provider store={store}>
+                <Feedback/>
                 <AuthWatcher/>
                 <div className="shane-preater">
                     <Header showContact={() => setShowContact(true)}/>
-                    <ContactUs show={showContact} setShow={setShowContact} />
+                    <ContactUs show={showContact} setShow={setShowContact}/>
                     <div className="content">
                         <Route path="/blog" component={Blog}/>
                         <Route path="/mentor" component={Mentor}/>

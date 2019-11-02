@@ -20,17 +20,19 @@ const search = `query ListPosts(
 }
 `;
 
-export const createPost = async (input, setSubmitting, setErrorMessage) => {
+export const createPost = async (input, setSubmitting, success, error) => {
+    input.archive = false;
     try {
         const {id} = await API.graphql(graphqlOperation(gqlCreatePost, {input}));
         console.log(`Created post with ID: ${id}`);
-        setErrorMessage([]);
-        setSubmitting(false);
+        success("Blog post has been saved", `<p>Successfully saved the blog post with title ${input.title}</p>`);
         return id;
-    } catch(e) {
+    } catch (e) {
         console.error(e.errors);
-        setErrorMessage(e.errors);
+        const errorList = "<ul>" + e.errors.map(e => `<li>${e.path}: ${e.message}</li>`) + "</ul>";
+        error("Blog creation has failed", `<p>There was a problem saving the blog post</p>${errorList}`);
     }
+    setSubmitting(false);
 };
 
 export const retrievePosts = async (searchTerm, setPosts, setErrorMessage) => {

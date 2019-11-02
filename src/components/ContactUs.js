@@ -3,6 +3,10 @@ import {Button, Form, Modal} from "react-bootstrap";
 import {Formik} from "formik";
 import {EmailField, TextAreaField, TextField} from "./FieldGroup";
 import * as yup from "yup"
+import {API, graphqlOperation} from "aws-amplify";
+import {createContactRequest} from "../graphql/mutations";
+import {userIdSelector} from "../authentication/AuthReducer";
+import {connect} from "react-redux";
 
 const formSchema = yup.object().shape({
     email: yup.string().email().required(),
@@ -10,10 +14,30 @@ const formSchema = yup.object().shape({
     content: yup.string().required()
 });
 
-const ContactUs = ({show, setShow}) => {
+const ContactUs = ({userId, show, setShow, errorResponse, successResponse}) => {
     const sendContactRequest = (values, {setSubmitting}) => {
-        console.log("Feedback submission requested.");
-        setShow(false);
+        const shipIt = async () => {
+            try {
+                const {id, email} = await API.graphql(graphqlOperation(createContactRequest, {
+                    input: {
+                        ...values,
+                        owner: userId,
+                        submitted: new Date().toISOString(),
+                        actioned: false
+                    }
+                }));
+                console.log(`Contact request saved with id: ${id}`);
+                successResponse("Contact request received", `<p>Contact request for ${values.email} has been successfully registered.</p><p>Thanks very much for your interest,<br/>>Shane.</p>`)
+            } catch (e) {
+                console.error(e.errors);
+                const errorList = "<ul>" + e.errors.map(e => `<li>${e.path}: ${e.message}</li>`) + "</ul>";
+                errorResponse("Contact request has failed.",
+                    `<p>There appears to have been a problem submitting the contact request.</p><p>Please try again later</p><h5>Errors:</h5>${errorList}`)
+            }
+            setSubmitting(false);
+            setShow(false);
+        };
+        shipIt();
     };
 
     return (
@@ -73,4 +97,27 @@ const ContactUs = ({show, setShow}) => {
     );
 };
 
-export default ContactUs;
+const mapStateToProps = state => ({
+    userId: userIdSelector(state)
+});
+
+const mapDispatchToProps = dispatch => ({
+    errorResponse: (title, message) => {
+        console.log("Dispatching error: ");
+        console.log(message);
+        dispatch({
+            type: "error/received",
+            title,
+            message
+        })
+    },
+    successResponse: (title, message) => {
+        dispatch({
+            type: "success/received",
+            title,
+            message
+        })
+    }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactUs);

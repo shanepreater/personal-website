@@ -44,8 +44,11 @@ export const onCreateContactRequest = `subscription OnCreateContactRequest {
   onCreateContactRequest {
     id
     email
+    submitted
+    owner
     subject
     content
+    actioned
   }
 }
 `;
@@ -53,8 +56,11 @@ export const onUpdateContactRequest = `subscription OnUpdateContactRequest {
   onUpdateContactRequest {
     id
     email
+    submitted
+    owner
     subject
     content
+    actioned
   }
 }
 `;
@@ -62,8 +68,11 @@ export const onDeleteContactRequest = `subscription OnDeleteContactRequest {
   onDeleteContactRequest {
     id
     email
+    submitted
+    owner
     subject
     content
+    actioned
   }
 }
 `;

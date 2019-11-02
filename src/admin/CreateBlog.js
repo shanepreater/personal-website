@@ -5,6 +5,7 @@ import {Button, Card, Col, Form, Row} from "react-bootstrap";
 import {DateField, TextAreaField, TextField} from "../components/FieldGroup";
 import marked from "marked"
 import {createPost} from "../aws/awsBlog";
+import {connect} from "react-redux";
 
 const postValidation = yup.object().shape({
     author: yup.string().required(),
@@ -12,17 +13,17 @@ const postValidation = yup.object().shape({
     tldr: yup.string().required(),
     publishDate: yup.object().required().default(() => new Date()),
     content: yup.string().required(),
-    label: yup.array().of(yup.string())
+    labels: yup.array().of(yup.string())
 });
 
 
-const CreateBlog = () => {
+const CreateBlog = ({successResponse, errorResponse}) => {
     const [preview, setPreview] = useState(undefined);
     const displayPreview = preview ? "block": "none";
 
     const handleSubmit = (values, {setSubmitting}) => {
         console.log(values);
-        createPost(values, setSubmitting, console.log);
+        createPost(values, setSubmitting, successResponse, errorResponse);
     };
 
     const previewContent = content => {
@@ -34,7 +35,7 @@ const CreateBlog = () => {
             <h3>Create a post</h3>
             <Row>
                 <Col md={6}>
-                    <Formik initialValues={{publishDate: new Date(), label: []}}
+                    <Formik initialValues={{publishDate: new Date(), labels: []}}
                             validationSchema={postValidation} onSubmit={handleSubmit}>
                         {({
                               handleSubmit,
@@ -114,4 +115,25 @@ const CreateBlog = () => {
     )
 };
 
-export default CreateBlog;
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = dispatch => ({
+    errorResponse: (title, message) => {
+        console.log("Dispatching error: ");
+        console.log(message);
+        dispatch({
+            type: "error/received",
+            title,
+            message
+        })
+    },
+    successResponse: (title, message) => {
+        dispatch({
+            type: "success/received",
+            title,
+            message
+        })
+    }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateBlog);

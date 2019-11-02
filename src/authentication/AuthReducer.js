@@ -66,6 +66,18 @@ export const userNameSelector = state => {
     return userDetails.name;
 };
 
+export const userIdSelector = state => {
+    const userDetails = userDetailsSelector(state);
+    if(userDetails === null) {
+        return "<unknown>";
+    }
+    const userId = userDetails.username;
+    if(userId) {
+        return userId;
+    }
+    return "<unknown>";
+};
+
 export const userAvatarSelector = state => {
     const userDetails = userDetailsSelector(state);
     if (userDetails === null) {

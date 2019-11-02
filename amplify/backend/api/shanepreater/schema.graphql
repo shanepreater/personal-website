@@ -2,7 +2,7 @@ type Post @model {
     id: ID!
     author: String!
     title: String!
-    publishDate: AWSTimestamp!
+    publishDate: AWSDateTime!
     tldr: String!
     content: String!
     labels: [String]!
@@ -11,8 +11,10 @@ type Post @model {
 
 type ContactRequest @model {
     id: ID!
-    submitted: AWSTimestamp!
-    email: String!
+    email: AWSEmail!
+    submitted: AWSDateTime!
+    owner: String!
     subject: String!
     content: String!
+    actioned: Boolean!
 }
