@@ -9,7 +9,8 @@ export const createPost = `mutation CreatePost($input: CreatePostInput!) {
     publishDate
     tldr
     content
-    label
+    labels
+    archive
   }
 }
 `;
@@ -21,7 +22,8 @@ export const updatePost = `mutation UpdatePost($input: UpdatePostInput!) {
     publishDate
     tldr
     content
-    label
+    labels
+    archive
   }
 }
 `;
@@ -33,7 +35,8 @@ export const deletePost = `mutation DeletePost($input: DeletePostInput!) {
     publishDate
     tldr
     content
-    label
+    labels
+    archive
   }
 }
 `;

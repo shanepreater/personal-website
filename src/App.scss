@@ -23,7 +23,7 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Montserrat:400,700|Oxyg
     padding-right: 0.5em;
   }
 
-  p, li {
+  p, li, label {
     color: $gray-500;
   }
 
@@ -54,6 +54,16 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Montserrat:400,700|Oxyg
   }
   .toast-header button.close {
     color: inherit;
+  }
+
+  .markdown-container {
+    h1,h2,h3,h4,h5 {
+      color: $white;
+    }
+
+    p,li {
+      color: $gray-300;
+    }
   }
 }
 

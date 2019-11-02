@@ -9,7 +9,8 @@ export const onCreatePost = `subscription OnCreatePost {
     publishDate
     tldr
     content
-    label
+    labels
+    archive
   }
 }
 `;
@@ -21,7 +22,8 @@ export const onUpdatePost = `subscription OnUpdatePost {
     publishDate
     tldr
     content
-    label
+    labels
+    archive
   }
 }
 `;
@@ -33,7 +35,8 @@ export const onDeletePost = `subscription OnDeletePost {
     publishDate
     tldr
     content
-    label
+    labels
+    archive
   }
 }
 `;

@@ -9,7 +9,8 @@ export const getPost = `query GetPost($id: ID!) {
     publishDate
     tldr
     content
-    label
+    labels
+    archive
   }
 }
 `;
@@ -26,7 +27,8 @@ export const listPosts = `query ListPosts(
       publishDate
       tldr
       content
-      label
+      labels
+      archive
     }
     nextToken
   }

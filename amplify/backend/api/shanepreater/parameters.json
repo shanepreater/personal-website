@@ -1,0 +1,11 @@
+{
+    "AppSyncApiName": "shanepreater",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": "false",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authpersonalwebsitea5980a66",
+            "Outputs.UserPoolId"
+        ]
+    }
+}

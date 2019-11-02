@@ -1,27 +1,34 @@
 {
+	"auth": {
+		"personalwebsitea5980a66": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	},
 	"api": {
-		"shanesBlog": {
+		"shanepreater": {
 			"service": "AppSync",
 			"providerPlugin": "awscloudformation",
 			"output": {
 				"authConfig": {
-					"additionalAuthenticationProviders": [],
+					"additionalAuthenticationProviders": [
+						{
+							"authenticationType": "AMAZON_COGNITO_USER_POOLS",
+							"userPoolConfig": {
+								"userPoolId": "authpersonalwebsitea5980a66"
+							}
+						}
+					],
 					"defaultAuthentication": {
 						"authenticationType": "API_KEY",
 						"apiKeyConfig": {
-							"description": "amplify key",
+							"description": "main shanepreater key",
 							"apiKeyExpirationDays": 180
 						}
 					}
 				}
 			}
-		}
-	},
-	"auth": {
-		"personalwebsite4aaf66d9": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": []
 		}
 	}
 }

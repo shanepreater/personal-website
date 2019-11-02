@@ -1,11 +1,11 @@
 import React from "react";
-import {Col, Form} from "react-bootstrap";
+import {Form} from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export const TextField = ({name, label, value, error, valid, handleChange, handleBlur, controlId,}) => {
     return (
-        <Form.Group as={Col} md="6" controlId={controlId}>
+        <Form.Group controlId={controlId}>
             <Form.Label>{label}</Form.Label>
             <Form.Control type="text"
                           name={name}
@@ -22,7 +22,7 @@ export const TextField = ({name, label, value, error, valid, handleChange, handl
 
 export const TextAreaField = ({name, label, value, error, valid, handleChange, handleBlur, controlId,}) => {
     return (
-        <Form.Group as={Col} md="6" controlId={controlId}>
+        <Form.Group controlId={controlId}>
             <Form.Label>{label}</Form.Label>
             <Form.Control as="textarea"
                           name={name}
@@ -53,7 +53,7 @@ export const DateField = ({name, label, value, error, valid, handleChange, handl
     };
 
     return (
-        <Form.Group as={Col} md="6" controlId={controlId}>
+        <Form.Group controlId={controlId}>
             <Form.Label>{label}</Form.Label>
             <br/>
             <Form.Control className={className}

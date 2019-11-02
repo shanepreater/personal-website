@@ -1,54 +1,10 @@
 import React, {useEffect, useState} from "react"
 import DynamicParallax from "../sections/DynamicParallax";
 import CodeAndTingImage from "../static/slider/montage.jpg";
-import {API} from 'aws-amplify';
-import {graphqlOperation} from "@aws-amplify/api";
 import {Button, Form} from "react-bootstrap";
 import {PostPreview} from "../components/Post";
 import {ErrorToast} from "../components/ErrorListToast";
-
-const search = `query ListPosts(
-  $filter: ModelPostFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      author
-      title
-      publishDate
-      tldr
-    }
-    nextToken
-  }
-}
-`;
-
-const retrievePosts = async (searchTerm, setPosts, setErrorMessage) => {
-    const filter = searchTerm ? {
-        title: {contains: searchTerm},
-        or: {
-            content: {contains: searchTerm}
-        }
-    } : undefined;
-    try {
-        const posts = await API.graphql(graphqlOperation(search, {
-            filter
-        }));
-        setErrorMessage([])
-        if (posts) {
-            console.log(`Obtained ${posts.length} posts`);
-            setPosts(posts)
-        } else {
-            setPosts([])
-        }
-    } catch (e) {
-        console.error(e.errors);
-        setPosts([])
-        setErrorMessage(e.errors)
-    }
-};
+import {retrievePosts} from "../aws/awsBlog";
 
 const renderPost = (post, idx) => {
     return (

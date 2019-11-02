@@ -25,7 +25,6 @@ const handlerMap = {
     },
     "credentials/received": (state, action) => {
         const groups = action.groups;
-        console.log(groups);
         return {...state, groups}
     }
 };

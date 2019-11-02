@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "personalwebsite4aaf66d9_identitypool_4aaf66d9",
+    "identityPoolName": "personalwebsitea5980a66_identitypool_a5980a66",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "person4aaf66d9",
-    "userPoolName": "personalwebsite4aaf66d9_userpool_4aaf66d9",
+    "resourceNameTruncated": "persona5980a66",
+    "userPoolName": "personalwebsitea5980a66_userpool_a5980a66",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -30,9 +30,9 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "person4aaf66d9_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "persona5980a66_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "resourceName": "personalwebsite4aaf66d9",
+    "resourceName": "personalwebsitea5980a66",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -49,12 +49,12 @@
     "useDefault": "defaultSocial",
     "hostedUI": true,
     "triggers": "{}",
-    "hostedUIDomainName": "shanepreater-dev",
+    "hostedUIDomainName": "shanepreaterdev",
     "authProvidersUserPool": [
         "Facebook"
     ],
     "hostedUIProviderMeta": "[{\"ProviderName\":\"Facebook\",\"authorize_scopes\":\"email,public_profile\",\"AttributeMapping\":{\"email\":\"email\",\"name\":\"name\",\"picture\":\"picture\",\"username\":\"id\"}}]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://www.shanepreater.dev/\",\"http://localhost:3000/\"],\"LogoutURLs\":[\"https://www.shanepreater.dev/\",\"http://localhost:3000/\"]}",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\",\"https://www.shanepreater.dev/\"],\"LogoutURLs\":[\"http://localhost:3000/\",\"https://www.shanepreater.dev/\"]}",
     "parentStack": {
         "Ref": "AWS::StackId"
     },
