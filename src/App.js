@@ -23,6 +23,7 @@ import Admin from "./routes/Admin";
 import {loadConfig} from "./aws/awsConfig";
 import ContactUs from "./components/ContactUs";
 import Feedback from "./feedback/Feedback";
+import BlogPost from "./routes/blogPost";
 
 Amplify.configure(loadConfig());
 
@@ -45,7 +46,8 @@ const App = () => {
                     <Header showContact={() => setShowContact(true)}/>
                     <ContactUs show={showContact} setShow={setShowContact}/>
                     <div className="content">
-                        <Route path="/blog" component={Blog}/>
+                        <Route path="/blog/:id" component={BlogPost}/>s
+                        <Route path="/blog" exact component={Blog}/>
                         <Route path="/mentor" component={Mentor}/>
                         <Route path="/dev" component={Developer}/>
                         <Route path="/design" component={Designer}/>

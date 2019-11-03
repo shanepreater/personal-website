@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react"
-import DynamicParallax from "../sections/DynamicParallax";
 import CodeAndTingImage from "../static/slider/montage.jpg";
 import {Button, Form} from "react-bootstrap";
 import {PostPreview} from "../components/Post";
-import {ErrorToast} from "../components/ErrorListToast";
+import {CircularProgress} from "@material-ui/core";
 import {retrievePosts} from "../aws/awsBlog";
+import DynamicParallax from "../sections/DynamicParallax";
+import {connect} from "react-redux";
 
 const renderPost = (post, idx) => {
     return (
@@ -12,14 +13,51 @@ const renderPost = (post, idx) => {
     )
 };
 
-const Blog = (props) => {
+const BlogLoading = () => {
+    return (
+        <section>
+            <h3>Blog is loading...</h3>
+            <CircularProgress/>
+            <p>Please wait while the blog posts load.</p>
+        </section>
+    )
+};
+
+const Posts = ({posts, performSearch}) => {
     const [query, setQuery] = useState("");
-    const [q, setQ] = useState("");
+
+    return (
+        <React.Fragment>
+            <span className="text-center" style={{width: "100%"}}>
+                <Form inline>
+                    <Form.Group>
+                        <Form.Label>Filter Blogs: </Form.Label> &nbsp;
+                        <Form.Control type="text" placeholder="Filter" defaultValue={query}
+                                      onChange={ev => setQuery(ev.target.value)}/>
+                    </Form.Group>
+                    <Button variant="primary" onClick={() => performSearch(query)}>Search</Button>
+                </Form>
+            </span>
+            <h3>Posts</h3>
+            {posts.length > 0 ? posts.map((post, idx) => renderPost(post, idx)) : (
+                <p>No posts found. Try changing the search criteria.</p>
+            )}
+        </React.Fragment>
+    )
+};
+
+const Blog = ({errorResponse}) => {
+    const [loading, setLoading] = useState(true);
     const [posts, setPosts] = useState([]);
-    const [errorMessages, setErrorMessages] = useState([])
+    const [query, setQuery] = useState("");
+
+    const receivePosts = posts => {
+        setPosts(posts);
+        setLoading(false);
+    };
 
     useEffect(() => {
-        retrievePosts(query, setPosts, setErrorMessages)
+        retrievePosts(query, receivePosts, errorResponse)
     }, [query]);
 
     return (
@@ -31,24 +69,27 @@ const Blog = (props) => {
                 </div>
             )}/>
             <section>
-                <span className="text-center" style={{width: "100%"}}>
-                <Form inline>
-                    <Form.Group>
-                        <Form.Label>Filter Blogs</Form.Label>
-                        <Form.Control type="text" placeholder="Filter" defaultValue={q}
-                                      onChange={ev => setQ(ev.target.value)}/>
-                    </Form.Group>
-                    <Button variant="primary" onClick={() => setQuery(q)}>Search</Button>
-                </Form>
-                </span>
-                <h3>Posts</h3>
-                {posts.length > 0 ? posts.map((post, idx) => renderPost(post, idx)) : (
-                    <p>No posts found. Try changing the search criteria.</p>)}
-
+                {loading ? <BlogLoading/> : <Posts posts={posts} performSearch={setQuery}/>}
             </section>
-            <ErrorToast errorList={errorMessages} setErrorList={setErrorMessages} errorTitle="Error loading posts"/>
         </div>
     )
 };
 
-export default Blog
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = dispatch => ({
+    errorResponse: e => {
+        console.error(e);
+        const title = "Error loading blog posts";
+        const errorList = e.errors ? "<ul>" + e.errors.map(e => `<li>${e.path}: ${e.message}</li>`) + "</ul>" : `<p>${String(e)}</p>`;
+        const message = `<p>Error has occurred whilst loading blog posts:</p>${errorList}`;
+
+        dispatch({
+            type: "error/received",
+            title,
+            message
+        })
+    }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Blog);

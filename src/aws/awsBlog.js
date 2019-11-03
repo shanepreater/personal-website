@@ -1,24 +1,7 @@
 import {API} from "aws-amplify"
 import {graphqlOperation} from "@aws-amplify/api";
 import {createPost as gqlCreatePost} from "../graphql/mutations";
-
-const search = `query ListPosts(
-  $filter: ModelPostFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      author
-      title
-      publishDate
-      tldr
-    }
-    nextToken
-  }
-}
-`;
+import {listPosts} from "../graphql/queries";
 
 export const createPost = async (input, setSubmitting, success, error) => {
     input.archive = false;
@@ -35,27 +18,34 @@ export const createPost = async (input, setSubmitting, success, error) => {
     setSubmitting(false);
 };
 
-export const retrievePosts = async (searchTerm, setPosts, setErrorMessage) => {
+export const retrievePosts = async (searchTerm, setPosts, errorResponse) => {
+    const eq = `*${searchTerm}*`;
     const filter = searchTerm ? {
-        title: {contains: searchTerm},
         or: {
-            content: {contains: searchTerm}
-        }
-    } : undefined;
+            title: {eq},
+            content: {eq}
+        },
+        archive: {eq: false}
+    } : {archive: {eq: false}};
     try {
-        const posts = await API.graphql(graphqlOperation(search, {
+        const {data} = await API.graphql(graphqlOperation(listPosts, {
             filter
         }));
-        setErrorMessage([]);
-        if (posts) {
-            console.log(`Obtained ${posts.length} posts`);
-            setPosts(posts)
+        if (data) {
+            console.log(data);
+            const posts = data.listPosts.items;
+            console.log("Posts:");
+            console.log(posts);
+            if (posts) {
+                console.log(`Obtained ${posts.length} posts`);
+                setPosts(posts)
+            }
         } else {
             setPosts([])
         }
     } catch (e) {
         console.error(e.errors);
-        setPosts([])
-        setErrorMessage(e.errors)
+        setPosts([]);
+        errorResponse(e);
     }
 };

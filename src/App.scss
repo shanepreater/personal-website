@@ -383,6 +383,17 @@ legend {
   }
 }
 
+.post.preview > .small {
+  text-align: end;
+}
+
+.post-content {
+  h1,h2,h3,h4,h5,h6 {
+    color: $white;
+    font-size: small;
+  }
+}
+
 form, label, p, span, li {
   color: $gray-300;
 }
