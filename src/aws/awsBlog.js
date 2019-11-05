@@ -1,7 +1,7 @@
 import {API} from "aws-amplify"
 import {graphqlOperation} from "@aws-amplify/api";
 import {createPost as gqlCreatePost} from "../graphql/mutations";
-import {listPosts} from "../graphql/queries";
+import {listPosts, searchPosts} from "../graphql/queries";
 
 export const createPost = async (input, setSubmitting, success, error) => {
     input.archive = false;
@@ -18,22 +18,30 @@ export const createPost = async (input, setSubmitting, success, error) => {
     setSubmitting(false);
 };
 
+const buildGraphQLRequest = match => {
+    if (match) {
+        return graphqlOperation(searchPosts, {
+            filter: {
+                content: {
+                    match
+                },
+                archive: {eq: false}
+            }
+        })
+    }
+    return graphqlOperation(listPosts, {
+        filter: {
+            archive: {eq: false}
+        }
+    });
+}
+
 export const retrievePosts = async (searchTerm, setPosts, errorResponse) => {
-    const eq = `*${searchTerm}*`;
-    const filter = searchTerm ? {
-        or: {
-            title: {eq},
-            content: {eq}
-        },
-        archive: {eq: false}
-    } : {archive: {eq: false}};
     try {
-        const {data} = await API.graphql(graphqlOperation(listPosts, {
-            filter
-        }));
+        const {data} = await API.graphql(buildGraphQLRequest(searchTerm));
         if (data) {
             console.log(data);
-            const posts = data.listPosts.items;
+            const posts = data.listPosts ? data.listPosts.items : data.searchPosts.items;
             console.log("Posts:");
             console.log(posts);
             if (posts) {

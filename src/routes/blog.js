@@ -29,13 +29,13 @@ const Posts = ({posts, performSearch}) => {
     return (
         <React.Fragment>
             <span className="text-center" style={{width: "100%"}}>
-                <Form inline>
+                <Form inline noValidate onSubmit={evt => {evt.preventDefault(); performSearch(query)}}>
                     <Form.Group>
                         <Form.Label>Filter Blogs: </Form.Label> &nbsp;
                         <Form.Control type="text" placeholder="Filter" defaultValue={query}
-                                      onChange={ev => setQuery(ev.target.value)}/>
+                                      onChange={ev => setQuery(ev.target.value)} />
                     </Form.Group>
-                    <Button variant="primary" onClick={() => performSearch(query)}>Search</Button>
+                    <Button variant="primary" type="submit">Search</Button>
                 </Form>
             </span>
             <h3>Posts</h3>

@@ -1,4 +1,4 @@
-type Post @model {
+type Post @model @searchable @aws_api_key @aws_cognito_user_pools {
     id: ID!
     author: String!
     title: String!
@@ -9,7 +9,7 @@ type Post @model {
     archive: Boolean!
 }
 
-type ContactRequest @model {
+type ContactRequest @model @aws_api_key {
     id: ID!
     email: AWSEmail!
     submitted: AWSDateTime!

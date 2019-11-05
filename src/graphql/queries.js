@@ -65,3 +65,29 @@ export const listContactRequests = `query ListContactRequests(
   }
 }
 `;
+export const searchPosts = `query SearchPosts(
+  $filter: SearchablePostFilterInput
+  $sort: SearchablePostSortInput
+  $limit: Int
+  $nextToken: String
+) {
+  searchPosts(
+    filter: $filter
+    sort: $sort
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      author
+      title
+      publishDate
+      tldr
+      content
+      labels
+      archive
+    }
+    nextToken
+  }
+}
+`;
