@@ -4,7 +4,6 @@ import {Button, Form} from "react-bootstrap";
 import {PostPreview} from "../components/Post";
 import {CircularProgress} from "@material-ui/core";
 import {retrievePosts} from "../aws/awsBlog";
-import DynamicParallax from "../sections/DynamicParallax";
 import {connect} from "react-redux";
 
 const renderPost = (post, idx) => {
@@ -29,11 +28,14 @@ const Posts = ({posts, performSearch}) => {
     return (
         <React.Fragment>
             <span className="text-center" style={{width: "100%"}}>
-                <Form inline noValidate onSubmit={evt => {evt.preventDefault(); performSearch(query)}}>
+                <Form inline noValidate onSubmit={evt => {
+                    evt.preventDefault();
+                    performSearch(query)
+                }}>
                     <Form.Group>
                         <Form.Label>Filter Blogs: </Form.Label> &nbsp;
                         <Form.Control type="text" placeholder="Filter" defaultValue={query}
-                                      onChange={ev => setQuery(ev.target.value)} />
+                                      onChange={ev => setQuery(ev.target.value)}/>
                     </Form.Group>
                     <Button variant="primary" type="submit">Search</Button>
                 </Form>
@@ -62,12 +64,11 @@ const Blog = ({errorResponse}) => {
 
     return (
         <div id="blog">
-            <DynamicParallax image={CodeAndTingImage} alt="Montage of all the things I do" content={(
-                <div>
-                    <h3>Welcome to my blog</h3>
-                    <p>I have put together blogs on various aspects of software development, design and training</p>
-                </div>
-            )}/>
+            <section className="section-header">
+                <img src={CodeAndTingImage} alt="Montage of all the things I do"/>
+                <h3>Welcome to my blog</h3>
+                <p>I have put together blogs on various aspects of software development, design and training</p>
+            </section>
             <section>
                 {loading ? <BlogLoading/> : <Posts posts={posts} performSearch={setQuery}/>}
             </section>

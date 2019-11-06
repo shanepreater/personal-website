@@ -24,6 +24,7 @@ import {loadConfig} from "./aws/awsConfig";
 import ContactUs from "./components/ContactUs";
 import Feedback from "./feedback/Feedback";
 import BlogPost from "./routes/blogPost";
+import {Container} from "react-bootstrap";
 
 Amplify.configure(loadConfig());
 
@@ -42,7 +43,7 @@ const App = () => {
             <Provider store={store}>
                 <Feedback/>
                 <AuthWatcher/>
-                <div className="shane-preater">
+                <Container fluid className="shane-preater">
                     <Header showContact={() => setShowContact(true)}/>
                     <ContactUs show={showContact} setShow={setShowContact}/>
                     <div className="content">
@@ -55,7 +56,7 @@ const App = () => {
                         <Route path="/" exact component={AboutMe}/>
                     </div>
                     <Footer showContact={() => setShowContact(true)}/>
-                </div>
+                </Container>
             </Provider>
         </BrowserRouter>
     );

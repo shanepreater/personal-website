@@ -1,5 +1,4 @@
 import React from "react";
-import DynamicParallax from "./DynamicParallax";
 import DevelopmentImage from "../static/slider/code.jpg";
 import {Container, Row} from "react-bootstrap";
 import MediaArea from "./MediaArea";
@@ -9,13 +8,13 @@ import TerraformLogo from "../static/images/terraform.png";
 const Developer = props => {
     return (
         <React.Fragment>
-            <DynamicParallax image={DevelopmentImage} alt="Lines of code" content={(
-                <div><h3>Systems development</h3>
-                    <p>I have been privileged to lead and be a member of various teams. Developing in many languages and
-                        using various development techniques</p>
-                    <p>I have been using a full DevOps approach for several years now, on both cloud solutions and
-                        on premise infrastructure stacks.</p></div>
-            )}/>
+            <section className="section-header">
+                <img src={DevelopmentImage} alt="Lines of code"/><h3>Systems development</h3>
+                <p>I have been privileged to lead and be a member of various teams. Developing in many languages and
+                    using various development techniques</p>
+                <p>I have been using a full DevOps approach for several years now, on both cloud solutions and
+                    on premise infrastructure stacks.</p>
+            </section>
             <section>
                 <h3>Languages</h3>
                 <Container fluid>

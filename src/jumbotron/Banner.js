@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from "react-redux";
 import CodingImage from "../static/slider/code.jpg"
 import DesignImage from "../static/slider/flowdiagram.jpg"
-import MentoringImage from "../static/slider/mentoring03.jpg"
+import MentoringImage from "../static/slider/mentoring04.jpg"
 import {Link} from "react-router-dom";
 import {Carousel, Col, Row} from "react-bootstrap";
 import "./Banner.css"
@@ -36,7 +36,7 @@ const carouselItems = [{
 
 const Banner = ({showJumbo, closeJumbotron}) => {
     return (
-        <section className="home-slider">
+        <section className="home-slider ">
             <Row noGutters>
                 <Col>
                     <Carousel>
@@ -44,8 +44,9 @@ const Banner = ({showJumbo, closeJumbotron}) => {
                             return (<Carousel.Item key={index} className="slider-item">
                                 <img src={ci.image} alt="carousel item" className="slider-image"/>
                                 <Carousel.Caption>
-                                    <h3>{ci.synopsis}</h3>
-                                    <p>{ci.content}</p>
+                                    <h3 className="d-none d-md-block">{ci.synopsis}</h3>
+                                    <h6 className="d-block d-md-none">{ci.synopsis}</h6>
+                                    <p className="d-none d-md-block">{ci.content}</p>
                                     <p><Link to={ci.link} className="btn btn-primary">Learn more</Link>
                                     </p>
                                 </Carousel.Caption>

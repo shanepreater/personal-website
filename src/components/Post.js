@@ -16,7 +16,7 @@ export const PostPreview = ({post}) => {
     };
 
     return (
-        <Card className="post preview">
+        <Card className="post-preview">
             <Card.Header>
                 <Card.Title>{post.title}</Card.Title>
                 <Card.Subtitle>

@@ -43,7 +43,7 @@ const ContactUs = ({userId, show, setShow, errorResponse, successResponse}) => {
     return (
         <Modal show={show} onHide={() => setShow(false)}>
             <Modal.Header closeButton>
-                <Modal.Title>Disclaimers</Modal.Title>
+                <Modal.Title>Contact Us</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Formik initialValues={{email: ""}}

@@ -69,6 +69,8 @@ const Disclaimers = ({show, setShow}) => {
                             no responsibility for, and will not be liable for, the website being temporarily unavailable
                             due
                             to technical issues beyond our control.</p>
+                            <sub>Images used on the site:</sub>
+                            <sub><a href="https://www.freepik.com/free-photos-vectors/business">Business photo created by yanalya - www.freepik.com</a></sub>
                         </div>
                     </Tab>
                 </Tabs></Modal.Body>
