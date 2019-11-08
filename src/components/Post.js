@@ -31,7 +31,7 @@ export const PostPreview = ({post}) => {
             <Card.Footer>
                 <Row>
                     <Col><Link to={`/blog/${post.id}`} variant="primary">Show Post</Link></Col>
-                    <Col><p className="small">Posted on {post.publishDate} by {post.author}</p></Col>
+                    <Col><p className="small text-right">Posted on {new Date(post.publishDate).toDateString()} by {post.author}</p></Col>
                 </Row>
             </Card.Footer>
         </Card>
