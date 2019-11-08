@@ -1,32 +1,34 @@
-import {adaptUserResponse} from "../aws/awsAuth";
+import { adaptUserResponse } from "../aws/awsAuth";
 
 const InitialState = {
-    awsAuth: null,
-    userDetails: null,
-    groups: []
+  awsAuth: null,
+  userDetails: null,
+  groups: []
 };
 
 const handlerMap = {
-    "auth/signin": (state, action) => {
-        console.log(action.user);
-        return {...state, awsAuth: action.user};
-    },
-    "auth/signout": (state, action) => {
-        return {
-            ...state,
-            userDetails: null,
-            awsAuth: null
-        };
-    },
-    "userDetails/received": (state, action) => {
-        const responseDetails = action.userDetails;
-        const userDetails = responseDetails ? adaptUserResponse(responseDetails) : null;
-        return {...state, userDetails}
-    },
-    "credentials/received": (state, action) => {
-        const groups = action.groups;
-        return {...state, groups}
-    }
+  "auth/signin": (state, action) => {
+    console.log(action.user);
+    return { ...state, awsAuth: action.user };
+  },
+  "auth/signout": (state, action) => {
+    return {
+      ...state,
+      userDetails: null,
+      awsAuth: null
+    };
+  },
+  "userDetails/received": (state, action) => {
+    const responseDetails = action.userDetails;
+    const userDetails = responseDetails
+      ? adaptUserResponse(responseDetails)
+      : null;
+    return { ...state, userDetails };
+  },
+  "credentials/received": (state, action) => {
+    const groups = action.groups;
+    return { ...state, groups };
+  }
 };
 
 /**
@@ -36,13 +38,13 @@ const handlerMap = {
  * @returns {Map} The updated state
  */
 export const authReducer = (state = InitialState, action) => {
-    const handler = handlerMap[action.type];
-    if (handler) {
-        return handler(state, action);
-    }
+  const handler = handlerMap[action.type];
+  if (handler) {
+    return handler(state, action);
+  }
 
-    const awsAuth = localStorage.getItem("awsAuth");
-    return {...state, awsAuth};
+  const awsAuth = localStorage.getItem("awsAuth");
+  return { ...state, awsAuth };
 };
 
 /**
@@ -50,50 +52,50 @@ export const authReducer = (state = InitialState, action) => {
  */
 
 export const userDetailsSelector = state => {
-    return state.auth.userDetails;
+  return state.auth.userDetails;
 };
 
 export const loggedInSelector = state => {
-    const userDetails = userDetailsSelector(state);
-    return userDetails !== null;
+  const userDetails = userDetailsSelector(state);
+  return userDetails !== null;
 };
 
 export const userNameSelector = state => {
-    const userDetails = userDetailsSelector(state);
-    if (userDetails === null) {
-        return "";
-    }
-    return userDetails.name;
+  const userDetails = userDetailsSelector(state);
+  if (userDetails === null) {
+    return "";
+  }
+  return userDetails.name;
 };
 
 export const userIdSelector = state => {
-    const userDetails = userDetailsSelector(state);
-    if(userDetails === null) {
-        return "<unknown>";
-    }
-    const userId = userDetails.username;
-    if(userId) {
-        return userId;
-    }
+  const userDetails = userDetailsSelector(state);
+  if (userDetails === null) {
     return "<unknown>";
+  }
+  const userId = userDetails.username;
+  if (userId) {
+    return userId;
+  }
+  return "<unknown>";
 };
 
 export const userAvatarSelector = state => {
-    const userDetails = userDetailsSelector(state);
-    if (userDetails === null) {
-        return null;
-    }
-    return userDetails.avatar;
+  const userDetails = userDetailsSelector(state);
+  if (userDetails === null) {
+    return null;
+  }
+  return userDetails.avatar;
 };
 
 export const userGroupsSelector = state => {
-    return state.auth.groups;
+  return state.auth.groups;
 };
 
 export const adminSelector = state => {
-    const groups = userGroupsSelector(state);
-    if(groups) {
-        return groups.indexOf("website_admin") >= 0;
-    }
-    return false;
-}
+  const groups = userGroupsSelector(state);
+  if (groups) {
+    return groups.indexOf("website_admin") >= 0;
+  }
+  return false;
+};

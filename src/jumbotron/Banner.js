@@ -1,61 +1,80 @@
-import React from 'react'
-import {connect} from "react-redux";
-import CodingImage from "../static/slider/code.jpg"
-import DesignImage from "../static/slider/flowdiagram.jpg"
-import MentoringImage from "../static/slider/mentoring04.jpg"
-import {Link} from "react-router-dom";
-import {Carousel, Col, Row} from "react-bootstrap";
-import "./Banner.css"
+import React from "react";
+import { connect } from "react-redux";
+import CodingImage from "../static/slider/code.jpg";
+import DesignImage from "../static/slider/flowdiagram.jpg";
+import MentoringImage from "../static/slider/mentoring04.jpg";
+import { Link } from "react-router-dom";
+import { Carousel, Col, Row } from "react-bootstrap";
+import "./Banner.css";
 
-const mapStateToProps = state => ({})
+const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => ({
-    closeJumbotron: () => {
-        dispatch({
-            type: "JUMBO/VISIBLE/HIDE"
-        })
-    }
-})
+  closeJumbotron: () => {
+    dispatch({
+      type: "JUMBO/VISIBLE/HIDE"
+    });
+  }
+});
 
-const carouselItems = [{
+const carouselItems = [
+  {
     image: MentoringImage,
     synopsis: "Mentoring your team",
-    content: "As a developement expert, I am well versed in training and mentoring teams.",
+    content:
+      "As a developement expert, I am well versed in training and mentoring teams.",
     link: "/mentor"
-}, {
+  },
+  {
     image: DesignImage,
     synopsis: "Designing your systems",
-    content: "Over 15 years experience in designing systems of varying complexity",
+    content:
+      "Over 15 years experience in designing systems of varying complexity",
     link: "/design"
-}, {
+  },
+  {
     image: CodingImage,
     synopsis: "Developing to your requirements",
-    content: "I am a polymath when it comes to programming, capable of expert development in a number of different languages",
+    content:
+      "I am a polymath when it comes to programming, capable of expert development in a number of different languages",
     link: "/dev"
-}]
+  }
+];
 
-const Banner = ({showJumbo, closeJumbotron}) => {
-    return (
-        <section className="home-slider ">
-            <Row noGutters>
-                <Col>
-                    <Carousel>
-                        {carouselItems.map((ci, index) => {
-                            return (<Carousel.Item key={index} className="slider-item">
-                                <img src={ci.image} alt="carousel item" className="slider-image"/>
-                                <Carousel.Caption>
-                                    <h3 className="d-none d-md-block">{ci.synopsis}</h3>
-                                    <h6 className="d-block d-md-none">{ci.synopsis}</h6>
-                                    <p className="d-none d-md-block">{ci.content}</p>
-                                    <p><Link to={ci.link} className="btn btn-primary">Learn more</Link>
-                                    </p>
-                                </Carousel.Caption>
-                            </Carousel.Item>)
-                        })}
-                    </Carousel>
-                </Col>
-            </Row>
-        </section>
-    )
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Banner)
+const Banner = ({ showJumbo, closeJumbotron }) => {
+  return (
+    <section className="home-slider ">
+      <Row noGutters>
+        <Col>
+          <Carousel>
+            {carouselItems.map((ci, index) => {
+              return (
+                <Carousel.Item key={index} className="slider-item">
+                  <img
+                    src={ci.image}
+                    alt="carousel item"
+                    className="slider-image"
+                  />
+                  <Carousel.Caption>
+                    <h3 className="d-none d-md-block">{ci.synopsis}</h3>
+                    <h6 className="d-block d-md-none">{ci.synopsis}</h6>
+                    <p className="d-none d-md-block">{ci.content}</p>
+                    <p>
+                      <Link to={ci.link} className="btn btn-primary">
+                        Learn more
+                      </Link>
+                    </p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+              );
+            })}
+          </Carousel>
+        </Col>
+      </Row>
+    </section>
+  );
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Banner);

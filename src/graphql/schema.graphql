@@ -1,18 +1,18 @@
 type Post @model {
-    id: ID!
-    author: String!
-    title: String!
-    publishDate: AWSDateTime!
-    tldr: String!
-    content: String!
-    labels: [String]!
-    archive: Boolean!
+  id: ID!
+  author: String!
+  title: String!
+  publishDate: AWSDateTime!
+  tldr: String!
+  content: String!
+  labels: [String]!
+  archive: Boolean!
 }
 
 type ContactRequest @model {
-    id: ID!
-    email: AWSEmail!
-    submitted: AWSDateTime!
-    subject: String!
-    content: String!
+  id: ID!
+  email: AWSEmail!
+  submitted: AWSDateTime!
+  subject: String!
+  content: String!
 }

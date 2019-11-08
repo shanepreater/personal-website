@@ -1,3 +1,3 @@
-export const  createBackgroundImage = img => ({
-    backgroundImage: `url(${img})`
+export const createBackgroundImage = img => ({
+  backgroundImage: `url(${img})`
 });
