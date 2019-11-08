@@ -12,14 +12,14 @@ const SignedInControls = ({listClass, isAdmin, name, picture, signOut}) => {
     return (
         <React.Fragment>
             {isAdmin && (<li className={smallClass}>
-                <Link to="/admin/blog/create">Create Post</Link>
+                <Link to="/admin/blog/create" className="nav-link">Create Post</Link>
             </li> )}
             <li className={smallClass}>
-                <a href="#" onClick={signOut}>Sign out</a>
+                <a href="#" className="nav-link" onClick={signOut}>Sign out</a>
             </li>
             <li className={largeClass}>
                 <Dropdown>
-                    <DropdownToggle id="signedInDropLink" variant="link">
+                    <DropdownToggle id="signedInDropLink" variant="link" className="nav-link">
                         <Image src={picture.url} roundedCircle/>
                     </DropdownToggle>
                     <Dropdown.Menu>
@@ -32,7 +32,7 @@ const SignedInControls = ({listClass, isAdmin, name, picture, signOut}) => {
 };
 
 const SignedOutControls = ({listClass, signIn}) => {
-    return (<li className={listClass}><Button variant="link" onClick={signIn}>Sign in</Button></li>);
+    return (<li className={listClass}><Button variant="link" className="nav-link" onClick={signIn}>Sign in</Button></li>);
 };
 
 const AuthenticationControl = ({listClass, loggedIn, name, picture, isAdmin}) => {

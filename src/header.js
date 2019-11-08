@@ -29,10 +29,10 @@ const Header = ({showContact}) => {
                             <Link className="nav-link" to="/mentor">Mentoring and Training</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/design">Software Design</Link>
+                            <Link className="nav-link" to="/design">Design</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/dev">Software Development</Link>
+                            <Link className="nav-link" to="/dev">Development</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/blog">Blog</Link>
