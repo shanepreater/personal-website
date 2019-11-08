@@ -38,7 +38,7 @@ const Header = ({showContact}) => {
                             <Link className="nav-link" to="/blog">Blog</Link>
                         </li>
                         <li className="nav-item">
-                            <Button variant="link" className="nav-link" onClick={showContact}>Contact</Button>
+                            <Link className="nav-link" to="/resources">Resources</Link>
                         </li>
                         <AuthenticationControl listClass="nav-item"/>
                     </ul>

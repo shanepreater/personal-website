@@ -18,6 +18,7 @@ import Mentor from "./sections/Mentoring";
 import Developer from "./sections/Developer";
 import Designer from "./sections/Designer";
 import AboutMe from "./sections/AboutMe";
+import Resources from "./sections/resources";
 import Footer from "./Footer";
 import Admin from "./routes/Admin";
 import {loadConfig} from "./aws/awsConfig";
@@ -53,6 +54,7 @@ const App = () => {
                         <Route path="/dev" component={Developer}/>
                         <Route path="/design" component={Designer}/>
                         <Route path="/admin" component={Admin}/>
+                        <Route path="/resources" component={Resources} />
                         <Route path="/" exact component={AboutMe}/>
                     </div>
                     <Footer showContact={() => setShowContact(true)}/>

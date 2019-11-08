@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Head first design pattens",
+    "link": "https://amzn.to/2qCJexK",
+    "amazonImage": {
+      "href": "https://www.amazon.co.uk/gp/product/0596007124/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=0596007124&linkCode=as2&tag=shanepreater-21&linkId=f274d7884870f10d47ee26de345bfbbe",
+      "mainSource": "//ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=GB&ASIN=0596007124&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=shanepreater-21",
+      "pixelSource": "//ir-uk.amazon-adsystem.com/e/ir?t=shanepreater-21&l=am2&o=2&a=0596007124"
+    },
+    "details": "Paper back from Amazon",
+    "description": "When it comes to understanding and implementing the various design patterns that are commonly used the typical go to resource is the Gang of four design patterns book. However, this is quite a technical and dry book to get your head around. For new developers / designers I like to use \"Head first\" as it's a much more engaging explanation of the main design patterns in common use."
+  },
+  {
+    "name": "Introduction to Machine Learning with Python",
+    "link": "https://amzn.to/2oVa8Ay",
+    "amazonImage": {
+      "href": "https://www.amazon.co.uk/gp/product/1449369413/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=1449369413&linkCode=as2&tag=shanepreater-21&linkId=f712824aa38871a2000f35a541f775ac",
+      "mainSource": "//ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=GB&ASIN=1449369413&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=shanepreater-21",
+      "pixelSource": "//ir-uk.amazon-adsystem.com/e/ir?t=shanepreater-21&l=am2&o=2&a=1449369413"
+    },
+    "details": "Great introduction book to machine learning in Python",
+    "description": "When I was first approached to do some work using machine learning, I stumbled upon this book and found it a great introduction into the area. It does a good job of covering a complex topic nd leaving you confident that you can get going in the ML arena."
+  },
+  {
+    "name": "Continuous delivery with AWS and JavaScript",
+    "link": "https://amzn.to/2WX4tqw",
+    "amazonImage": {
+      "href": "https://www.amazon.co.uk/gp/product/B0813YNCVF/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B0813YNCVF&linkCode=as2&tag=shanepreater-21&linkId=78b34b327e579ec36a8b55bca9160492",
+      "mainSource": "//ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=GB&ASIN=B0813YNCVF&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=shanepreater-21",
+      "pixelSource": "//ir-uk.amazon-adsystem.com/e/ir?t=shanepreater-21&l=am2&o=2&a=B0813YNCVF"
+    },
+    "details": "Amazon kindle book that I have authored",
+    "description": "After working through setting up CI/CD pipelines with various of my customers, it seemed like a sensible idea to provide a resource to allow them to do this own their own. Also as so many of my clients were asking the same questions, I thought it was probably something which would be desired by many other organisations / developers."
+  }
+]

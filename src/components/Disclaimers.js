@@ -71,6 +71,7 @@ const Disclaimers = ({show, setShow}) => {
                             to technical issues beyond our control.</p>
                             <sub>Images used on the site:</sub>
                             <sub><a href="https://www.freepik.com/free-photos-vectors/business">Business photo created by yanalya - www.freepik.com</a></sub>
+                            <sub><a href="https://www.freepik.com/free-photos-vectors/vintage">Vintage photo created by freepik - www.freepik.com</a></sub>
                         </div>
                     </Tab>
                 </Tabs></Modal.Body>
