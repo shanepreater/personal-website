@@ -1,6 +1,74 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getAdvert = `query GetAdvert($id: ID!) {
+  getAdvert(id: $id) {
+    id
+    from
+    variant
+    description
+    clicks {
+      items {
+        id
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const listAdverts = `query ListAdverts(
+  $filter: ModelAdvertFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listAdverts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      from
+      variant
+      description
+      clicks {
+        nextToken
+      }
+    }
+    nextToken
+  }
+}
+`;
+export const getAdClick = `query GetAdClick($id: ID!) {
+  getAdClick(id: $id) {
+    id
+    advert {
+      id
+      from
+      variant
+      description
+      clicks {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const listAdClicks = `query ListAdClicks(
+  $filter: ModelAdClickFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listAdClicks(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      advert {
+        id
+        from
+        variant
+        description
+      }
+    }
+    nextToken
+  }
+}
+`;
 export const getPost = `query GetPost($id: ID!) {
   getPost(id: $id) {
     id
@@ -11,6 +79,7 @@ export const getPost = `query GetPost($id: ID!) {
     content
     labels
     archive
+    owner
   }
 }
 `;
@@ -29,6 +98,7 @@ export const listPosts = `query ListPosts(
       content
       labels
       archive
+      owner
     }
     nextToken
   }
@@ -86,6 +156,7 @@ export const searchPosts = `query SearchPosts(
       content
       labels
       archive
+      owner
     }
     nextToken
   }

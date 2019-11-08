@@ -1,4 +1,4 @@
-import { API } from "aws-amplify";
+import {API, Auth} from "aws-amplify";
 import { graphqlOperation } from "@aws-amplify/api";
 import { createPost as gqlCreatePost } from "../graphql/mutations";
 import { searchPosts } from "../graphql/queries";
@@ -6,6 +6,7 @@ import { searchPosts } from "../graphql/queries";
 export const createPost = async (input, setSubmitting, success, error) => {
   input.archive = false;
   try {
+    API.configure({aws_appsync_authenticationType: "AMAZON_COGNITO_USER_POOLS"});
     const { id } = await API.graphql(
       graphqlOperation(gqlCreatePost, { input })
     );
@@ -42,6 +43,7 @@ const buildGraphQLRequest = match => {
 
 export const retrievePosts = async (searchTerm, setPosts, errorResponse) => {
   try {
+    API.configure({aws_appsync_authenticationType: "API_KEY"});
     const { data } = await API.graphql(buildGraphQLRequest(searchTerm));
     if (data) {
       const posts = data.listPosts

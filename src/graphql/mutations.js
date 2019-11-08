@@ -1,6 +1,96 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createAdvert = `mutation CreateAdvert($input: CreateAdvertInput!) {
+  createAdvert(input: $input) {
+    id
+    from
+    variant
+    description
+    clicks {
+      items {
+        id
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const updateAdvert = `mutation UpdateAdvert($input: UpdateAdvertInput!) {
+  updateAdvert(input: $input) {
+    id
+    from
+    variant
+    description
+    clicks {
+      items {
+        id
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const deleteAdvert = `mutation DeleteAdvert($input: DeleteAdvertInput!) {
+  deleteAdvert(input: $input) {
+    id
+    from
+    variant
+    description
+    clicks {
+      items {
+        id
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const createAdClick = `mutation CreateAdClick($input: CreateAdClickInput!) {
+  createAdClick(input: $input) {
+    id
+    advert {
+      id
+      from
+      variant
+      description
+      clicks {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const updateAdClick = `mutation UpdateAdClick($input: UpdateAdClickInput!) {
+  updateAdClick(input: $input) {
+    id
+    advert {
+      id
+      from
+      variant
+      description
+      clicks {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const deleteAdClick = `mutation DeleteAdClick($input: DeleteAdClickInput!) {
+  deleteAdClick(input: $input) {
+    id
+    advert {
+      id
+      from
+      variant
+      description
+      clicks {
+        nextToken
+      }
+    }
+  }
+}
+`;
 export const createPost = `mutation CreatePost($input: CreatePostInput!) {
   createPost(input: $input) {
     id
@@ -11,6 +101,7 @@ export const createPost = `mutation CreatePost($input: CreatePostInput!) {
     content
     labels
     archive
+    owner
   }
 }
 `;
@@ -24,6 +115,7 @@ export const updatePost = `mutation UpdatePost($input: UpdatePostInput!) {
     content
     labels
     archive
+    owner
   }
 }
 `;
@@ -37,6 +129,7 @@ export const deletePost = `mutation DeletePost($input: DeletePostInput!) {
     content
     labels
     archive
+    owner
   }
 }
 `;

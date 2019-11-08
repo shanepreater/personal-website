@@ -1,4 +1,8 @@
-type Post @model @searchable @aws_api_key @aws_cognito_user_pools {
+type Post @model @searchable @aws_api_key    @aws_cognito_user_pools @auth(rules: [
+    {allow: owner},
+    {allow: public, operations: [read]},
+    {allow: groups, groups: ["website_admin"]}
+]) {
     id: ID!
     author: String!
     title: String!
@@ -9,7 +13,11 @@ type Post @model @searchable @aws_api_key @aws_cognito_user_pools {
     archive: Boolean!
 }
 
-type ContactRequest @model @aws_api_key {
+type ContactRequest @model @aws_api_key @auth(rules: [
+    {allow: owner},
+    {allow: public, operations: [create]},
+    {allow: groups, groups: ["website_admin"]}
+]) {
     id: ID!
     email: AWSEmail!
     submitted: AWSDateTime!
@@ -17,4 +25,17 @@ type ContactRequest @model @aws_api_key {
     subject: String!
     content: String!
     actioned: Boolean!
+}
+
+type Advert @model @aws_api_key {
+    id: ID!
+    from: String!
+    variant: String!
+    description: String
+    clicks: [AdClick] @connection(name: "AdClicks")
+}
+
+type AdClick @model @aws_api_key {
+    id:ID!
+    advert: Advert! @connection(name: "AdClicks")
 }

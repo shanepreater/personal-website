@@ -1,8 +1,98 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreatePost = `subscription OnCreatePost {
-  onCreatePost {
+export const onCreateAdvert = `subscription OnCreateAdvert {
+  onCreateAdvert {
+    id
+    from
+    variant
+    description
+    clicks {
+      items {
+        id
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onUpdateAdvert = `subscription OnUpdateAdvert {
+  onUpdateAdvert {
+    id
+    from
+    variant
+    description
+    clicks {
+      items {
+        id
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onDeleteAdvert = `subscription OnDeleteAdvert {
+  onDeleteAdvert {
+    id
+    from
+    variant
+    description
+    clicks {
+      items {
+        id
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onCreateAdClick = `subscription OnCreateAdClick {
+  onCreateAdClick {
+    id
+    advert {
+      id
+      from
+      variant
+      description
+      clicks {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const onUpdateAdClick = `subscription OnUpdateAdClick {
+  onUpdateAdClick {
+    id
+    advert {
+      id
+      from
+      variant
+      description
+      clicks {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const onDeleteAdClick = `subscription OnDeleteAdClick {
+  onDeleteAdClick {
+    id
+    advert {
+      id
+      from
+      variant
+      description
+      clicks {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const onCreatePost = `subscription OnCreatePost($owner: String) {
+  onCreatePost(owner: $owner) {
     id
     author
     title
@@ -11,11 +101,12 @@ export const onCreatePost = `subscription OnCreatePost {
     content
     labels
     archive
+    owner
   }
 }
 `;
-export const onUpdatePost = `subscription OnUpdatePost {
-  onUpdatePost {
+export const onUpdatePost = `subscription OnUpdatePost($owner: String) {
+  onUpdatePost(owner: $owner) {
     id
     author
     title
@@ -24,11 +115,12 @@ export const onUpdatePost = `subscription OnUpdatePost {
     content
     labels
     archive
+    owner
   }
 }
 `;
-export const onDeletePost = `subscription OnDeletePost {
-  onDeletePost {
+export const onDeletePost = `subscription OnDeletePost($owner: String) {
+  onDeletePost(owner: $owner) {
     id
     author
     title
@@ -37,11 +129,12 @@ export const onDeletePost = `subscription OnDeletePost {
     content
     labels
     archive
+    owner
   }
 }
 `;
-export const onCreateContactRequest = `subscription OnCreateContactRequest {
-  onCreateContactRequest {
+export const onCreateContactRequest = `subscription OnCreateContactRequest($owner: String) {
+  onCreateContactRequest(owner: $owner) {
     id
     email
     submitted
@@ -52,8 +145,8 @@ export const onCreateContactRequest = `subscription OnCreateContactRequest {
   }
 }
 `;
-export const onUpdateContactRequest = `subscription OnUpdateContactRequest {
-  onUpdateContactRequest {
+export const onUpdateContactRequest = `subscription OnUpdateContactRequest($owner: String) {
+  onUpdateContactRequest(owner: $owner) {
     id
     email
     submitted
@@ -64,8 +157,8 @@ export const onUpdateContactRequest = `subscription OnUpdateContactRequest {
   }
 }
 `;
-export const onDeleteContactRequest = `subscription OnDeleteContactRequest {
-  onDeleteContactRequest {
+export const onDeleteContactRequest = `subscription OnDeleteContactRequest($owner: String) {
+  onDeleteContactRequest(owner: $owner) {
     id
     email
     submitted
