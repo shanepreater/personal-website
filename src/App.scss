@@ -33,6 +33,7 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Montserrat:400,700|Oxyg
 
   .section-header {
     width: 100%;
+
     img {
       max-width: 100%;
     }
@@ -71,9 +72,14 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Montserrat:400,700|Oxyg
 
   .post-preview {
     margin-bottom: 0.5em;
+
     .card-header {
     }
   }
+}
+
+.model-header > .alert {
+  width: 100%
 }
 
 .model-body {
@@ -139,9 +145,7 @@ section {
   @each $color, $value in $theme-colors {
     &-#{$color} {
       @if $enable-gradients {
-        background: $value
-          linear-gradient(180deg, mix($white, $value, 15%), $value)
-          repeat-x;
+        background: $value linear-gradient(180deg, mix($white, $value, 15%), $value) repeat-x;
       } @else {
         background-color: $value;
       }
@@ -361,9 +365,7 @@ legend {
   @each $color, $value in $theme-colors {
     &-#{$color} {
       @if $enable-gradients {
-        background: $value
-          linear-gradient(180deg, mix($white, $value, 15%), $value)
-          repeat-x;
+        background: $value linear-gradient(180deg, mix($white, $value, 15%), $value) repeat-x;
       } @else {
         background-color: $value;
       }

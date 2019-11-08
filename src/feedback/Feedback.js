@@ -27,7 +27,9 @@ const Feedback = ({ showFeedback, title, message, type, closeFeedback }) => {
   return (
     <Modal show={showFeedback} onHide={closeFeedback} className="feedback">
       <Modal.Header>
-        <Alert variant={type}>{title}</Alert>
+        <Alert variant={type} style={{ width: "100%" }}>
+          {title}
+        </Alert>
       </Modal.Header>
       <Modal.Body>
         <div dangerouslySetInnerHTML={rawMessage} />
