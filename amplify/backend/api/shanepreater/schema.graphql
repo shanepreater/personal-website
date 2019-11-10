@@ -27,15 +27,24 @@ type ContactRequest @model @aws_api_key @auth(rules: [
     actioned: Boolean!
 }
 
-type Advert @model @aws_api_key {
+type Advert @model  @aws_api_key @auth(rules: [
+    {allow: owner},
+    {allow: public, operations: [read]},
+    {allow: groups, groups: ["website_admin"]}
+]) {
     id: ID!
     from: String!
+    to: String!
     variant: String!
     description: String
     clicks: [AdClick] @connection(name: "AdClicks")
 }
 
-type AdClick @model @aws_api_key {
+type AdClick @model  @aws_api_key @auth(rules: [
+    {allow: owner},
+    {allow: public, operations: [create, read]},
+    {allow: groups, groups: ["website_admin"]}
+]) {
     id:ID!
     advert: Advert! @connection(name: "AdClicks")
 }

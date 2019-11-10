@@ -31,5 +31,19 @@
     },
     "details": "Amazon kindle book that I have authored",
     "description": "After working through setting up CI/CD pipelines with various of my customers, it seemed like a sensible idea to provide a resource to allow them to do this own their own. Also as so many of my clients were asking the same questions, I thought it was probably something which would be desired by many other organisations / developers."
+  },
+  {
+    "name": "Trello",
+    "link": "https://trello.com/shanepreater/recommend",
+    "image": "https://d2k1ftgv7pobq7.cloudfront.net/meta/u/res/images/brand-assets/Logos/0099ec3754bf473d2bbf317204ab6fea/trello-logo-blue.png",
+    "details": "Easy to use and convenient activity board",
+    "description": "My goto tool for visualising tasks and activity boards. I love the convenience of Trello, it does exactly what it says on the tin. You create a board and then decide on some swim lanes and finally create some tickets (cards) which can then be assigned and progressed through the board. My team and I use it as a really simple backlog when we are working on projects which don't require the added functionality of something like Jira, this is a great choice."
+  },
+  {
+    "name": "Intellij",
+    "image": "https://www.jetbrains.com/idea/",
+    "image": "http://resources.jetbrains.com/storage/products/intellij-idea/img/meta/intellij-idea_logo_300x300.png",
+    "details": "Great feature packed IDE",
+    "description": "Over the years I have used many different IDE's for writing code. From Visual studio through Eclipse, I have used most of them. I was introduced to Intellij on one of my clients projects, as it was the IDE for their whole team. Although I think the debugging experience in Eclipse is better, this is about the only thing that Eclipse nudges ahead of Intellij on. I have now used the ultimate edition for several years, and I find it efficient (probably because I have almost all the keyboard shortcuts memorised now) and the plugin architecture to be seamless. Also it seems to have good plugins for most of my needs."
   }
 ]

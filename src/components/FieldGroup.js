@@ -9,8 +9,8 @@ export const TextField = ({
   value,
   error,
   valid,
-  handleChange,
-  handleBlur,
+  onChange,
+  onBlur,
   controlId
 }) => {
   return (
@@ -20,13 +20,41 @@ export const TextField = ({
         type="text"
         name={name}
         defaultValue={value}
-        onChange={handleChange}
+        onChange={onChange}
         isInvalid={!valid}
-        onBlur={handleBlur}
+        onBlur={onBlur}
       />
       <Form.Control.Feedback type="invalid">{error}</Form.Control.Feedback>
     </Form.Group>
   );
+};
+
+export const UrlField = (props) => {
+    console.log("Props:", props)
+    const {
+        name,
+        label,
+        value,
+        error,
+        valid,
+        onChange,
+        onBlur,
+        controlId
+    } = props;
+    return (
+        <Form.Group controlId={controlId}>
+            <Form.Label>{label}</Form.Label>
+            <Form.Control
+                type="url"
+                name={name}
+                defaultValue={value}
+                onChange={onChange}
+                isInvalid={!valid}
+                onBlur={onBlur}
+            />
+            <Form.Control.Feedback type="invalid">{error}</Form.Control.Feedback>
+        </Form.Group>
+    );
 };
 
 export const EmailField = ({
@@ -35,8 +63,8 @@ export const EmailField = ({
   value,
   error,
   valid,
-  handleChange,
-  handleBlur,
+  onChange,
+  onBlur,
   controlId
 }) => {
   return (
@@ -46,9 +74,9 @@ export const EmailField = ({
         type="email"
         name={name}
         defaultValue={value}
-        onChange={handleChange}
+        onChange={onChange}
         isInvalid={!valid}
-        onBlur={handleBlur}
+        onBlur={onBlur}
       />
       <Form.Control.Feedback type="invalid">{error}</Form.Control.Feedback>
     </Form.Group>
@@ -61,8 +89,8 @@ export const TextAreaField = ({
   value,
   error,
   valid,
-  handleChange,
-  handleBlur,
+  onChange,
+  onBlur,
   controlId
 }) => {
   return (
@@ -72,9 +100,9 @@ export const TextAreaField = ({
         as="textarea"
         name={name}
         value={value}
-        onChange={handleChange}
+        onChange={onChange}
         isInvalid={!valid}
-        onBlur={handleBlur}
+        onBlur={onBlur}
       />
       <Form.Control.Feedback type="invalid">{error}</Form.Control.Feedback>
     </Form.Group>
@@ -87,8 +115,8 @@ export const DateField = ({
   value,
   error,
   valid,
-  handleChange,
-  handleBlur,
+  onChange,
+  onBlur,
   controlId
 }) => {
   let className = "form-control";
@@ -102,7 +130,7 @@ export const DateField = ({
         value: newDate
       }
     };
-    handleChange(event, newDate);
+    onChange(event, newDate);
   };
 
   return (
@@ -116,7 +144,7 @@ export const DateField = ({
         selected={value}
         onChange={handleDateChange}
         isInvalid={!valid}
-        onBlur={handleBlur}
+        onBlur={onBlur}
       />
       <Form.Control.Feedback type="invalid">{error}</Form.Control.Feedback>
     </Form.Group>

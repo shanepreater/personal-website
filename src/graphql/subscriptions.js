@@ -1,96 +1,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateAdvert = `subscription OnCreateAdvert {
-  onCreateAdvert {
-    id
-    from
-    variant
-    description
-    clicks {
-      items {
-        id
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const onUpdateAdvert = `subscription OnUpdateAdvert {
-  onUpdateAdvert {
-    id
-    from
-    variant
-    description
-    clicks {
-      items {
-        id
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const onDeleteAdvert = `subscription OnDeleteAdvert {
-  onDeleteAdvert {
-    id
-    from
-    variant
-    description
-    clicks {
-      items {
-        id
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const onCreateAdClick = `subscription OnCreateAdClick {
-  onCreateAdClick {
-    id
-    advert {
-      id
-      from
-      variant
-      description
-      clicks {
-        nextToken
-      }
-    }
-  }
-}
-`;
-export const onUpdateAdClick = `subscription OnUpdateAdClick {
-  onUpdateAdClick {
-    id
-    advert {
-      id
-      from
-      variant
-      description
-      clicks {
-        nextToken
-      }
-    }
-  }
-}
-`;
-export const onDeleteAdClick = `subscription OnDeleteAdClick {
-  onDeleteAdClick {
-    id
-    advert {
-      id
-      from
-      variant
-      description
-      clicks {
-        nextToken
-      }
-    }
-  }
-}
-`;
 export const onCreatePost = `subscription OnCreatePost($owner: String) {
   onCreatePost(owner: $owner) {
     id
@@ -166,6 +76,114 @@ export const onDeleteContactRequest = `subscription OnDeleteContactRequest($owne
     subject
     content
     actioned
+  }
+}
+`;
+export const onCreateAdvert = `subscription OnCreateAdvert($owner: String) {
+  onCreateAdvert(owner: $owner) {
+    id
+    from
+    to
+    variant
+    description
+    owner
+    clicks {
+      items {
+        id
+        owner
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onUpdateAdvert = `subscription OnUpdateAdvert($owner: String) {
+  onUpdateAdvert(owner: $owner) {
+    id
+    from
+    to
+    variant
+    description
+    owner
+    clicks {
+      items {
+        id
+        owner
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onDeleteAdvert = `subscription OnDeleteAdvert($owner: String) {
+  onDeleteAdvert(owner: $owner) {
+    id
+    from
+    to
+    variant
+    description
+    owner
+    clicks {
+      items {
+        id
+        owner
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onCreateAdClick = `subscription OnCreateAdClick($owner: String) {
+  onCreateAdClick(owner: $owner) {
+    id
+    advert {
+      id
+      from
+      to
+      variant
+      description
+      owner
+      clicks {
+        nextToken
+      }
+    }
+    owner
+  }
+}
+`;
+export const onUpdateAdClick = `subscription OnUpdateAdClick($owner: String) {
+  onUpdateAdClick(owner: $owner) {
+    id
+    advert {
+      id
+      from
+      to
+      variant
+      description
+      owner
+      clicks {
+        nextToken
+      }
+    }
+    owner
+  }
+}
+`;
+export const onDeleteAdClick = `subscription OnDeleteAdClick($owner: String) {
+  onDeleteAdClick(owner: $owner) {
+    id
+    advert {
+      id
+      from
+      to
+      variant
+      description
+      owner
+      clicks {
+        nextToken
+      }
+    }
+    owner
   }
 }
 `;

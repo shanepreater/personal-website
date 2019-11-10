@@ -10,6 +10,7 @@ import { Button, Dropdown, Image } from "react-bootstrap";
 import { Auth } from "aws-amplify";
 import DropdownToggle from "react-bootstrap/DropdownToggle";
 import { Link } from "react-router-dom";
+import AdminLinks from "../admin/adminLinks";
 
 const SignedInControls = ({ listClass, isAdmin, name, picture, signOut }) => {
   const smallClass = listClass + " navbar-brand-small d-block d-lg-none";
@@ -17,11 +18,7 @@ const SignedInControls = ({ listClass, isAdmin, name, picture, signOut }) => {
   return (
     <React.Fragment>
       {isAdmin && (
-        <li className={smallClass}>
-          <Link to="/admin/blog/create" className="nav-link">
-            Create Post
-          </Link>
-        </li>
+          <AdminLinks smallClass={smallClass} mode="navLink" />
       )}
       <li className={smallClass}>
         <a href="#" className="nav-link" onClick={signOut}>
@@ -39,9 +36,7 @@ const SignedInControls = ({ listClass, isAdmin, name, picture, signOut }) => {
           </DropdownToggle>
           <Dropdown.Menu>
             {isAdmin && (
-              <Dropdown.Item as={Link} to="/admin/blog/create">
-                Create Post
-              </Dropdown.Item>
+                <AdminLinks smallClass={smallClass} mode="dropDown" />
             )}
             <Dropdown.Item onClick={signOut}>Sign out</Dropdown.Item>
           </Dropdown.Menu>

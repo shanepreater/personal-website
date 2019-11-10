@@ -1,74 +1,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getAdvert = `query GetAdvert($id: ID!) {
-  getAdvert(id: $id) {
-    id
-    from
-    variant
-    description
-    clicks {
-      items {
-        id
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const listAdverts = `query ListAdverts(
-  $filter: ModelAdvertFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listAdverts(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      from
-      variant
-      description
-      clicks {
-        nextToken
-      }
-    }
-    nextToken
-  }
-}
-`;
-export const getAdClick = `query GetAdClick($id: ID!) {
-  getAdClick(id: $id) {
-    id
-    advert {
-      id
-      from
-      variant
-      description
-      clicks {
-        nextToken
-      }
-    }
-  }
-}
-`;
-export const listAdClicks = `query ListAdClicks(
-  $filter: ModelAdClickFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listAdClicks(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      advert {
-        id
-        from
-        variant
-        description
-      }
-    }
-    nextToken
-  }
-}
-`;
 export const getPost = `query GetPost($id: ID!) {
   getPost(id: $id) {
     id
@@ -130,6 +62,85 @@ export const listContactRequests = `query ListContactRequests(
       subject
       content
       actioned
+    }
+    nextToken
+  }
+}
+`;
+export const listAdverts = `query ListAdverts(
+  $filter: ModelAdvertFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listAdverts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      from
+      to
+      variant
+      description
+      owner
+      clicks {
+        nextToken
+      }
+    }
+    nextToken
+  }
+}
+`;
+export const getAdvert = `query GetAdvert($id: ID!) {
+  getAdvert(id: $id) {
+    id
+    from
+    to
+    variant
+    description
+    owner
+    clicks {
+      items {
+        id
+        owner
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const getAdClick = `query GetAdClick($id: ID!) {
+  getAdClick(id: $id) {
+    id
+    advert {
+      id
+      from
+      to
+      variant
+      description
+      owner
+      clicks {
+        nextToken
+      }
+    }
+    owner
+  }
+}
+`;
+export const listAdClicks = `query ListAdClicks(
+  $filter: ModelAdClickFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listAdClicks(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      advert {
+        id
+        from
+        to
+        variant
+        description
+        owner
+      }
+      owner
     }
     nextToken
   }
