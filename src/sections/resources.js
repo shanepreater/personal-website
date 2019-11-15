@@ -16,18 +16,23 @@ const Resources = props => {
                 {resourceItems.map((resource, index) => {
                     return (
                         <div key={index} className="resource-item">
-                            <a href={resource.link}>
+                            <a target="_blank" href={resource.link}>
                                 <h4>{resource.name}</h4>
-                                {!!resource.amazonImage && (
-                                    <AmazonImage image={resource.amazonImage} alt={resource.name}/>)}
-                                {!!resource.image && (
-                                    <img src={resource.image} alt={resource.name} style={resource.imageStyle}/>
-                                )}
                             </a>
+                            {!!resource.amazonImage && (
+                                <AmazonImage image={resource.amazonImage} alt={resource.name}/>)}
+                            {!!resource.image && (
+                                <a target="_blank" href={resource.link}>
+                                    <img src={resource.image} alt={resource.name} style={resource.imageStyle}/>
+                                </a>
+                            )}
                             <p>{resource.description}</p>
                         </div>
                     )
                 })}
+            </section>
+            <section className="section-footer">
+                <p>This list gets updated quite often so please come back soon and see what's new.</p>
             </section>
         </>
     )

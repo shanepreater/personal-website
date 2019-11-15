@@ -63,6 +63,7 @@ const App = () => {
             <Route path="/design" component={Designer} />
             <Route path="/admin" component={Admin} />
             <Route path="/resources" component={Resources} />
+            <Route path="/index.html" component={AboutMe} />
             <Route path="/" exact component={AboutMe} />
           </div>
           <Footer showContact={() => setShowContact(true)} />
