@@ -12,7 +12,8 @@ import {
   faBars,
   faCheckSquare,
   faCoffee,
-  faTerminal
+  faTerminal,
+  faExclamationCircle
 } from "@fortawesome/free-solid-svg-icons";
 import "./App.scss";
 import Amplify from "aws-amplify";
@@ -31,12 +32,13 @@ import { loadConfig } from "./aws/awsConfig";
 import ContactUs from "./components/ContactUs";
 import Feedback from "./feedback/Feedback";
 import BlogPost from "./routes/blogPost";
+import PageNotFound from "./sections/PageNotFound";
 import AdvertLandingPage from "./routes/advertLandingPage";
 import { Container } from "react-bootstrap";
 
 Amplify.configure(loadConfig());
 
-library.add(fab, faCheckSquare, faCoffee, faBars, faAt, faTerminal);
+library.add(fab, faCheckSquare, faCoffee, faBars, faAt, faTerminal, faExclamationCircle);
 const saga = createSagaMiddleware();
 
 const store = createStore(rootReducer, applyMiddleware(saga));
@@ -65,6 +67,7 @@ const App = () => {
             <Route path="/resources" component={Resources} />
             <Route path="/index.html" component={AboutMe} />
             <Route path="/" exact component={AboutMe} />
+            <Route component={PageNotFound} />
           </div>
           <Footer showContact={() => setShowContact(true)} />
         </Container>
