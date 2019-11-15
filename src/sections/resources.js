@@ -3,9 +3,9 @@ import BookshelfImage from "../static/slider/bookshelf.jpg";
 import resourceItems from "../static/resources"
 import AmazonImage from "../components/AmazonImage";
 
-const Resources = ({}) => {
+const Resources = props => {
     return (
-        <React.Fragment>
+        <>
             <section className="section-header">
                 <img src={BookshelfImage} alt="Some interesting resources"/>
                 <h3>Useful Resources</h3>
@@ -21,7 +21,7 @@ const Resources = ({}) => {
                                 {!!resource.amazonImage && (
                                     <AmazonImage image={resource.amazonImage} alt={resource.name}/>)}
                                 {!!resource.image && (
-                                    <img src={resource.image} alt={resource.name}/>
+                                    <img src={resource.image} alt={resource.name} style={resource.imageStyle}/>
                                 )}
                             </a>
                             <p>{resource.description}</p>
@@ -29,7 +29,7 @@ const Resources = ({}) => {
                     )
                 })}
             </section>
-        </React.Fragment>
+        </>
     )
 };
 

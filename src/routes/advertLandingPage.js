@@ -8,6 +8,7 @@ const triggerClickAndRedirect = async id => {
     console.log("Advert is: ", advert);
     if (advert) {
       await createAdvertClick(advert);
+      console.log("Redirecting to", advert.to);
       window.location.href = advert.to;
     }
   } catch (e) {
@@ -19,7 +20,7 @@ const AdvertLandingPage = props => {
   const { id } = useParams();
   useEffect(() => {
     triggerClickAndRedirect(id);
-  });
+  }, [id]);
   return (
     <section>
       <h3>Please wait...</h3>

@@ -1,33 +1,41 @@
 [
   {
     "name": "Head first design pattens",
-    "link": "https://amzn.to/2qCJexK",
+    "link": "https://amzn.to/2XhOR0J",
     "amazonImage": {
-      "href": "https://www.amazon.co.uk/gp/product/0596007124/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=0596007124&linkCode=as2&tag=shanepreater-21&linkId=f274d7884870f10d47ee26de345bfbbe",
-      "mainSource": "//ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=GB&ASIN=0596007124&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=shanepreater-21",
-      "pixelSource": "//ir-uk.amazon-adsystem.com/e/ir?t=shanepreater-21&l=am2&o=2&a=0596007124"
+      "src": "//ws-eu.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=GB&source=ac&ref=tf_til&ad_type=product_link&tracking_id=shanepreate07-21&marketplace=amazon&region=GB&placement=0596007124&asins=0596007124&linkId=c63164c7a17ebf712d9b4c3bb4a52327&show_border=false&link_opens_in_new_window=false&price_color=333333&title_color=0066c0&bg_color=ffffff",
+      "inlineStyle": {
+        "width": "120px",
+        "height": "240px"
+      }
     },
     "details": "Paper back from Amazon",
     "description": "When it comes to understanding and implementing the various design patterns that are commonly used the typical go to resource is the Gang of four design patterns book. However, this is quite a technical and dry book to get your head around. For new developers / designers I like to use \"Head first\" as it's a much more engaging explanation of the main design patterns in common use."
   },
   {
     "name": "Introduction to Machine Learning with Python",
-    "link": "https://amzn.to/2oVa8Ay",
+    "link": "https://amzn.to/33UoyQM",
     "amazonImage": {
-      "href": "https://www.amazon.co.uk/gp/product/1449369413/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=1449369413&linkCode=as2&tag=shanepreater-21&linkId=f712824aa38871a2000f35a541f775ac",
-      "mainSource": "//ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=GB&ASIN=1449369413&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=shanepreater-21",
-      "pixelSource": "//ir-uk.amazon-adsystem.com/e/ir?t=shanepreater-21&l=am2&o=2&a=1449369413"
+      "src": "//ws-eu.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=GB&source=ac&ref=tf_til&ad_type=product_link&tracking_id=shanepreate07-21&marketplace=amazon&region=GB&placement=1449369413&asins=1449369413&linkId=81e1c46f6d803ff0e50a82b875dce0d9&show_border=false&link_opens_in_new_window=false&price_color=333333&title_color=0066c0&bg_color=ffffff",
+      "inlineStyle": {
+        "width": "120px",
+        "height": "240px"
+      }
     },
     "details": "Great introduction book to machine learning in Python",
     "description": "When I was first approached to do some work using machine learning, I stumbled upon this book and found it a great introduction into the area. It does a good job of covering a complex topic nd leaving you confident that you can get going in the ML arena."
   },
   {
     "name": "Continuous delivery with AWS and JavaScript",
-    "link": "https://amzn.to/2WX4tqw",
+    "link": "https://amzn.to/2pkOMge",
     "amazonImage": {
-      "href": "https://www.amazon.co.uk/gp/product/B0813YNCVF/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B0813YNCVF&linkCode=as2&tag=shanepreater-21&linkId=78b34b327e579ec36a8b55bca9160492",
-      "mainSource": "//ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=GB&ASIN=B0813YNCVF&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=shanepreater-21",
-      "pixelSource": "//ir-uk.amazon-adsystem.com/e/ir?t=shanepreater-21&l=am2&o=2&a=B0813YNCVF"
+      "href": "https://www.amazon.co.uk/gp/product/1707257906/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=1707257906&linkCode=as2&tag=shanepreate07-21&linkId=6e83b76180346e8a211468d7f7770620",
+      "imageSrc": "//ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=GB&ASIN=1707257906&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=shanepreate07-21",
+      "trackingSrc": "//ir-uk.amazon-adsystem.com/e/ir?t=shanepreate07-21&l=am2&o=2&a=1707257906",
+      "inlineStyle": {
+        "border": "none !important",
+        "margin": "0px !important"
+      }
     },
     "details": "Amazon kindle book that I have authored",
     "description": "After working through setting up CI/CD pipelines with various of my customers, it seemed like a sensible idea to provide a resource to allow them to do this own their own. Also as so many of my clients were asking the same questions, I thought it was probably something which would be desired by many other organisations / developers."
@@ -36,13 +44,20 @@
     "name": "Trello",
     "link": "https://trello.com/shanepreater/recommend",
     "image": "https://d2k1ftgv7pobq7.cloudfront.net/meta/u/res/images/brand-assets/Logos/0099ec3754bf473d2bbf317204ab6fea/trello-logo-blue.png",
+    "imageStyle": {
+      "height": "64px"
+    },
     "details": "Easy to use and convenient activity board",
     "description": "My goto tool for visualising tasks and activity boards. I love the convenience of Trello, it does exactly what it says on the tin. You create a board and then decide on some swim lanes and finally create some tickets (cards) which can then be assigned and progressed through the board. My team and I use it as a really simple backlog when we are working on projects which don't require the added functionality of something like Jira, this is a great choice."
   },
   {
     "name": "Intellij",
-    "image": "https://www.jetbrains.com/idea/",
+    "link": "https://www.jetbrains.com/idea/",
     "image": "http://resources.jetbrains.com/storage/products/intellij-idea/img/meta/intellij-idea_logo_300x300.png",
+    "imageStyle": {
+      "width": "64px",
+      "height": "64px"
+    },
     "details": "Great feature packed IDE",
     "description": "Over the years I have used many different IDE's for writing code. From Visual studio through Eclipse, I have used most of them. I was introduced to Intellij on one of my clients projects, as it was the IDE for their whole team. Although I think the debugging experience in Eclipse is better, this is about the only thing that Eclipse nudges ahead of Intellij on. I have now used the ultimate edition for several years, and I find it efficient (probably because I have almost all the keyboard shortcuts memorised now) and the plugin architecture to be seamless. Also it seems to have good plugins for most of my needs."
   }

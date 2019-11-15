@@ -35,7 +35,9 @@ export const createAdvertCampaign = async (
 export const getAdvertCampaign = async id => {
   try {
     API.configure({ aws_appsync_authenticationType: "API_KEY" });
-    return await API.graphql(graphqlOperation(getAdvert, { id }));
+    const response = await API.graphql(graphqlOperation(getAdvert, { id }));
+    console.log("Response from GraphQL:", response);
+    return response.data.getAdvert;
   } catch (e) {
     console.error("Error getting campaign", e);
     return null;
